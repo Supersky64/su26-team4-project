@@ -2,7 +2,7 @@
 > TrailBuddy
 
 ## Team Members
-> Team Member #1 name
+> Bryan Palma-Matos
 
  
 
@@ -16,10 +16,10 @@ TrailBuddy's system supports users being able to curate their searches based on 
 
 ## App Functions
 1. Customer (the user with the customer role):
-    1. Create/modify customer profile - <how will your app do this?>
-    2. View available services - <how will your app do this?>.
-    3. Subscribe to available services - <how will your app do this?>.
-    4. Write reviews for subscribed services - <how will your app do this?>.
+    1. Create/modify customer profile - Register an account via a login screen as well and display/edit their skill level and preferences.
+    2. View available services - View a variety of activities, guides, classes, or events with a wide array of skill levels for the user to choose from.
+    3. Subscribe to available services - The user will be able to select one of the available services and register themselves for said outdoor activity.
+    4. Write reviews for subscribed services - Users will be able to leave a written review about the activity they had selected as well as be able to view other reviews left on that page.
 2. Provider (Individual Guides or Organizations):
     1. Create/modify/remove provider profile - Register as a provider and display overall experience and specialties.
     2. Create services - Publish offerings for classes, guided hikes, or outdoor events and their availability.
