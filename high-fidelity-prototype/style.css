@@ -134,7 +134,7 @@ button:hover {
 }
 
 
-details {
+.details {
     background-color: white;
     width: 80%;
     margin: 40px auto;
