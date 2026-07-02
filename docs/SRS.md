@@ -19,7 +19,7 @@
 - **Customer:** A person seeking outdoor activites to do, used interchangebly with users.
 - **Services:** What providers are offering to customers. Used interchangebly with offerings and listings.
 - **Profile:** Where all collected information (including personal information) about a customer or provider is stored for said individual to see and edit as needed.
-- **Skill Level:** The skill level a customer selected for themseleves to filter what activites meet their level, ranging from begineer, intermediate, and expert.
+- **Skill Level:** The skill level a customer selected for themseleves to filter what activites meet their level, ranging from begineer, intermediate, and advanced.
 
 **Primary Users / Roles.**
 - **Customer** — Find and register for outdoor activities that match their preferences and skill level. 
