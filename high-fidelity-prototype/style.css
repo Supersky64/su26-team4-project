@@ -133,6 +133,13 @@ button:hover {
     border-radius: 10px;
 }
 
+.profile {
+    background-color: white;
+    width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+}
 
 .details {
     background-color: white;
