@@ -12,25 +12,6 @@
 ---
 
 ## 1. Overview
-**Vision.** One or two sentences: who this is for, the core problem, and the outcome.
-
-**Glossary** Terms used in the project
-- **Term 1:** description.
-- **Term 2:** description
-
-**Primary Users / Roles.**
-- **Customer (e.g., Student/Patient/Pet Owner/etc. )** — 1 line goal statement.
-- **Provider (e.g., Teacher/Doctor/Pet Sitter/etc. )** — 1 line goal statement.
-- **SysAdmin (optional)** — 1 line goal statement.
-
-**Scope (this semester).**
-- <capability 1>
-- <capability 2>
-- <capability 3>
-
-**Out of scope (deferred).**
-- <deferred 1>
-- <deferred 2>
 **Vision.** TrailBuddy helps people find outdoor activites based on their skills/preferences and helps providers promote the activities they're offering to users.
 
 **Glossary** Terms used in the project
@@ -45,22 +26,21 @@
 - **Provider** — Manage offerings and promote themselves to potetinal customers
 
 **Scope (this semester).**
-- <capability 1> Search and filter for results
-- <capability 2> Profiles for customers and providers
-- <capability 3> Reviews from customers and responses from providers
-- <capability 4> Register for offerings
+- Search and filter for results
+- Profiles for customers and providers
+- Reviews from customers and responses from providers
+- Register for offerings
 
 **Out of scope (deferred).**
-- <deferred 1> Social networking feature between customers
-- <deferred 2> Display to users what is the most registered event
-- <deferred 3> Process payments
+- Social networking feature between customers
+- Display to users what is the most registered event
+- Process payments
 
 > This document is **requirements‑level** and solution‑neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
 
 ---
 
 ## 2. Functional Requirements (User Stories)
-Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`.** Each story includes at least one **Given/When/Then** scenario.
 
 ### 2.1 Customer Stories
 - **US‑1 — Login**  
@@ -104,71 +84,6 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
   ```
 
 ### 2.2 Provider Stories
-- **US-20 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-- **US-21 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-### 2.3 SysAdmin Stories
-- **US‑30 — <short title>**  
-  _Story:_ As a sysadmin, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-- **US‑31 — <short title>**  
-  _Story:_ As a sysadmin, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`.** Each story includes at least one **Given/When/Then** scenario. Take this out when done!!!!
-
-### 2.1 Customer Stories
-- **US‑1 — <short title>**  
-  _Story:_ As a customer, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-- **US‑2 — <short title>**  
-  _Story:_ As a customer, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-### 2.2 Provider Stories
 - **US-3 — Upload & remove listing**  
   _Story:_ As a provider, I want to upload/remove my listing to accurately show what I'm providing  
   _Acceptance:_
@@ -188,7 +103,6 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
     When  I am on my profile page and viewing the listing
     Then  I should be successful in making changes to the exisiting service
   ```
-
   
 - **US-6 — Responding to Reviews**  
   _Story:_ As a provider, I want to be able to respond to customers' reviews so we can better communicate on experiences  
@@ -224,15 +138,14 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
 ---
 
 ## 3. Non‑Functional Requirements (make them measurable)
-- **Performance:** description 
-- **Availability/Reliability:** description
-- **Security/Privacy:** description
-- **Usability:** description
+- **Performance:** At least 90% of search responses should be returned in < 3 seconds under average load.
+- **Availability/Reliability:** The system should be available 99% of the time, with planned maintenance windows communicated in advance.
+- **Security/Privacy:** All credentials are to be autheticated and authorized. Sensitive data should be encrypted and stored securely.
+- **Usability:** There should be no need of external assistance to navigate the website and users and providers alike should be able to register and make their first registertation for event and upload for event respectively in the first 5 minutes
 
 ---
 
 ## 4. Assumptions, Constraints, and Policies
-- list any rules, policies, assumptions, etc.
 - Course timeline as an applied constraint
 - For viewing in modern browsers
 - Stable internet connection
