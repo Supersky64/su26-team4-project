@@ -203,6 +203,15 @@ select:hover {
     text-align: center;
 }
 
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
 footer {
     background-color: #2a5726;
     color: white;
