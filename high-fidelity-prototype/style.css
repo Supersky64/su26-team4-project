@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4efe6;
+    color: #1f2a1f;
+}
+
+nav {
+    background-color: #2a5726;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+nav a:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+
+.hero {
+    padding: 80px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+
+
+.search {
+    text-align: center;
+    margin: 30px;
+}
+
+.search input {
+    width: 50%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+
+.container {
+    padding: 55px;
+}
+
+.card-container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    background-color: #7a9b76;
+    border-radius: 8px;
+}
+
+.card h2 {
+    margin: 16px;
+}
+
+.card p {
+    padding: 0 15px;
+}
+
+button {
+    background-color: #2a5726;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e401b;
+}
+
+.content {
+    width: 80%;
+    margin: 40px auto;
+    background-color: #1f2937;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.content img {
+    max-width: 400px;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+
+details {
+    background-color: white;
+    width: 80%;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.details img {
+    width: 100%;
+    height: 300px;
+    background-color: #7a9b76;
+    border-radius: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #7a9b76;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 16px;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.activities {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+.activities label {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.activities input {
+    margin-right: 8px;
+}
+
+/* login */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background-color: white;
+    width: 350px;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+footer {
+    background-color: #2a5726;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin-top: 20px;
+
+}
