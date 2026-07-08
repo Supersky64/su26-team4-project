@@ -38,11 +38,14 @@ public class Provider_entity {
   @Column(nullable = false)
   private String location;
 
-  public Provider_entity(String name, String email, String password, String location) {
+  private String description;
+
+  public Provider_entity(String name, String email, String password, String location, String description) {
     this.name = name;
     emailAddress = email;
     this.password = password;
     this.location = location;
+    this.description = description;
   }
 
 }
