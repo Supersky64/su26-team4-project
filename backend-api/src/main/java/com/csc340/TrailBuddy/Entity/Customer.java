@@ -52,16 +52,13 @@ public class Customer {
     this.preference = preference;
   }
 
+/*
   @OneToMany(mappedBy = "customer")
   @JsonIgnoreProperties("customer")
   private java.util.List<Rsvp> rsvps;
 
-  @OneToMany(mappedBy = "customer")
+   @OneToMany(mappedBy = "customer")
   @JsonIgnoreProperties("customer")
   private java.util.List<Review> reviews;
-
-  public Optional<Customer> map(Object object) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'map'");
-  }
+*/
 }
