@@ -1,6 +1,6 @@
 package com.csc340.TrailBuddy.Entity;
 
-import java.util.Optional;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@JsonPropertyOrder({"customerID", "name", "emailAddress", "password", "skillLevel", "preference"})
+@JsonPropertyOrder({"customerID", "name", "email", "password", "skillLevel", "preference"})
 
 @Entity
 @Table(name = "customers")
@@ -52,7 +52,7 @@ public class Customer {
     this.preference = preference;
   }
 
-/*
+
   @OneToMany(mappedBy = "customer")
   @JsonIgnoreProperties("customer")
   private java.util.List<Rsvp> rsvps;
@@ -60,5 +60,4 @@ public class Customer {
    @OneToMany(mappedBy = "customer")
   @JsonIgnoreProperties("customer")
   private java.util.List<Review> reviews;
-*/
 }
