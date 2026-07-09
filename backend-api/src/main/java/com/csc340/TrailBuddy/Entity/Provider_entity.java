@@ -48,4 +48,11 @@ public class Provider_entity {
     this.description = description;
   }
 
+  @OneToMany(mappedBy = "provider")
+  @JsonIgnoreProperties({"provider"})
+  private List<Review> reviews;
+
+  @OneToMany(mappedBy = "provider")
+  @JsonIgnoreProperties({"provider"})
+  private List<OutdoorService> offerings;
 }
