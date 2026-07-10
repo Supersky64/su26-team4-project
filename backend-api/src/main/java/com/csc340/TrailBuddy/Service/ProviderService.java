@@ -37,7 +37,7 @@ public class ProviderService {
     return providerRepository.findById(id);
   }
 
-  public Provider createTrainer(Provider p) {
+  public Provider createProvider(Provider p) {
     return providerRepository.save(p);
   }
 
