@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Provider_entity {
+public class Provider {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +40,7 @@ public class Provider_entity {
 
   private String description;
 
-  public Provider_entity(String name, String email, String password, String location, String description) {
+  public Provider (String name, String email, String password, String location, String description) {
     this.name = name;
     emailAddress = email;
     this.password = password;
