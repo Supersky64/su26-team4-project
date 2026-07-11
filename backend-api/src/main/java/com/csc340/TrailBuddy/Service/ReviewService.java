@@ -25,13 +25,9 @@ public class ReviewService {
         return reviewRepository.findByCustomer_CustomerId(customerId);
     }
 
-    //For future use, if we want to get reviews by provider ID, we can uncomment the following method and the corresponding method in ReviewRepository
-    /* 
     public List<Review> getReviewsByProviderId(Long providerId) {
         return reviewRepository.findByProviderId(providerId);
     }
-    */
-
 
     public Review createReview(Review review) {
         Long customerId = review.getCustomer().getCustomerId();

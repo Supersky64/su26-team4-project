@@ -58,7 +58,7 @@ public class Customer {
 
   @OneToMany(mappedBy = "customer")
   @JsonIgnoreProperties("customer")
-  private java.util.List<Rsvp> rsvps;
+  private java.util.List<RSVP> rsvps;
 
    @OneToMany(mappedBy = "customer")
   @JsonIgnoreProperties("customer")
