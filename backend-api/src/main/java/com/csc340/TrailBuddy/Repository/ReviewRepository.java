@@ -10,5 +10,5 @@ import com.csc340.TrailBuddy.Entity.Review;
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     List<Review> findByCustomer_CustomerId(Long customerId);
-    //List<Review> findByProviderId(Long providerId);
+    List<Review> findByProviderId(Long providerId);
 }

@@ -19,11 +19,11 @@ import com.csc340.TrailBuddy.Repository.RSVPRepository;
 @Service
 public class ProviderService {
 
-  private final ReviewRepository ReviewRepository;
+  private final ReviewRepository reviewRepository;
   private final ProviderRepository providerRepository;
   private final RSVPRepository rsvpRepository;
 
-  public TrainerService(ReviewRepository reviewRepository, ProviderRepository providerRepository, RSVPRepository rsvpRepository) {
+  public ProviderService(ReviewRepository reviewRepository, ProviderRepository providerRepository, RSVPRepository rsvpRepository) {
     this.reviewRepository = reviewRepository;
     this.providerRepository = providerRepository;
     this.rsvpRepository = rsvpRepository;
@@ -92,5 +92,22 @@ public class ProviderService {
     return providerRepository.findByNameContainingIgnoreCase(name);
   }
 
+   public void viewRegistration(Long providerId) {  //DOESNT WORK NEED TO FIX
+    Provider provider = providerRepository.findById(providerId)
+        .orElseThrow(() -> new RuntimeException("Provider not found with id: " + providerId));
+
+    List<RSVP> sessions = rsvpRepository.findByOutdoorServiceProviderId(providerId);
+    List<Review> reviews = reviewRepository.findByProviderId(providerId);
+
+    Set<Long> customerIds = sessions.stream()
+        .map(session -> session.getCustomer() != null ? session.getCustomer().getCustomerId() : null)
+        .filter(java.util.Objects::nonNull)
+        .collect(Collectors.toSet());
+
+    long totalSessions = sessions.stream()
+        .filter(session -> session.getStatus() == null || !"cancelled".equalsIgnoreCase(session.getStatus()))
+        .count();
+
+  }
   
 }
