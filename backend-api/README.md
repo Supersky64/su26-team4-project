@@ -6,7 +6,7 @@
 **Base URL:**
 
 - local: http://localhost:8080
-- production: 
+- production: https://trailbuddy-z728.onrender.com
 
 ## Table of Contents
 
