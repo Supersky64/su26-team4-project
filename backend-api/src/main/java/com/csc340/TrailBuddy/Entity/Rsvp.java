@@ -13,31 +13,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Table(name = "rsvps")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rsvp {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class RSVP {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long eventID;
 
-    @ManyToOne
-    @JsonIgnoreProperties({"rsvps"})
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
+  @ManyToOne
+  @JsonIgnoreProperties({"rsvps"})
+  @JoinColumn(nullable = false)
+  private Customer customer;
 
-    @ManyToOne
-    @JsonIgnoreProperties({"rsvps"})
-    @JoinColumn(name = "outdoor_service_id", nullable = false)
-    private OutdoorService outdoorService;
+  @ManyToOne
+  @JsonIgnoreProperties({ "OutdoorServices" })
+  @JoinColumn(nullable = false)
+  private OutdoorService outdoorService;
 
-    private String location;
+  private String status;
 
-    public Rsvp(Customer customer, String location) {
-        this.customer = customer;
-        this.location = location;
-    }
+  public RSVP(Customer customer, OutdoorService outdoorService, String status){
+    this.customer = customer;
+    this.outdoorService = outdoorService;
+    this.status = status;
+  }
+
 }
