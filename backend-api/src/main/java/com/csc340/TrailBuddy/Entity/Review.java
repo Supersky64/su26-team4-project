@@ -54,4 +54,8 @@ public class Review {
         this.replyText = replyText;
         this.provider = provider;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9575495fcbe79f72ec872c73e5b84e01d43086de
