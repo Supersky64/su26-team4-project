@@ -29,8 +29,17 @@ public class RSVP {
   @JoinColumn(nullable = false)
   private Customer customer;
 
-  public RSVP(Customer customer){
+  @ManyToOne
+  @JsonIgnoreProperties({ "OutdoorServices" })
+  @JoinColumn(nullable = false)
+  private OutdoorService outdoorService;
+
+  private String status;
+
+  public RSVP(Customer customer, OutdoorService outdoorService, String status){
     this.customer = customer;
+    this.outdoorService = outdoorService;
+    this.status = status;
   }
 
 }

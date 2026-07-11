@@ -9,6 +9,6 @@ import com.csc340.TrailBuddy.Entity.RSVP;
 @Repository
 public interface RSVPRepository extends JpaRepository<RSVP, Long>{
   List<RSVP> findByCustomerId(Long customerID);
-  List<RSVP> findByRSVPId(Long eventID);
-  List<RSVP> findByOutDoorServiceProviderId(Long providerID);
+  List<RSVP> findByOutdoorServiceId(Long eventID);
+  List<RSVP> findByOutdoorServiceProviderId(Long providerID);
 }
