@@ -14,9 +14,9 @@
 2. [UML Class Diagram](#2-uml-class-diagram)
 3. [API Endpoints](#3-api-endpoints)
    - [Customer Endpoints](#31-customer-endpoints)
-   - [Trainer Endpoints](#32-provider-endpoints)
-   - [Training Service Endpoints](#33-outdoor-service-endpoints)
-   - [Training Session Endpoints](#34-rsvp-endpoints)
+   - [Provider Endpoints](#32-provider-endpoints)
+   - [Outdoor Service Endpoints](#33-outdoor-service-endpoints)
+   - [RSVP Endpoints](#34-rsvp-endpoints)
    - [Review Endpoints](#35-review-endpoints)
 4. [Use Case Mapping](#4-use-case-mapping)
 
