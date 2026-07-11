@@ -39,7 +39,7 @@ public class Review {
     private Customer customer;
 
     @ManyToOne
-    @JsonIgnoreProperties({ "reviews", "timeslots" })
+    @JsonIgnoreProperties({ "reviews"})
     @JoinColumn(nullable = false)
     private Provider provider;
 
