@@ -10,15 +10,15 @@ import com.csc340.TrailBuddy.Repository.RSVPRepository;
 @Service
 public class RSVPService {
     
-    private final RSVPRepository rsvpRepository;
+  private final RSVPRepository rsvpRepository;
 
-    public RSVPService(RSVPRepository rsvpRepository) {
-    this.rsvpRepository = rsvpRepository;
+  public RSVPService(RSVPRepository rsvpRepository) {
+   this.rsvpRepository = rsvpRepository;
   }
 
   public List<RSVP> getRegistrationByCustomerId(Long customerId) {
     return rsvpRepository.findByCustomerId(customerId);
-  }
+   }
 
   public List<RSVP> getRegistrationByOutdoorServiceId(Long outdoorServiceId) {
     return rsvpRepository.findByOutdoorServiceId(outdoorServiceId);
