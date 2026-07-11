@@ -40,7 +40,7 @@ public class Provider {
 
   private String description;
 
-  public Provider(String name, String email, String password, String location, String description) {
+  public Provider (String name, String email, String password, String location, String description) {
     this.name = name;
     emailAddress = email;
     this.password = password;
@@ -48,6 +48,11 @@ public class Provider {
     this.description = description;
   }
 
+  @OneToMany(mappedBy = "provider")
+  @JsonIgnoreProperties({"provider"})
+  private List<Review> reviews;
 
-  
+  @OneToMany(mappedBy = "provider")
+  @JsonIgnoreProperties({"provider"})
+  private List<OutdoorService> offerings;
 }

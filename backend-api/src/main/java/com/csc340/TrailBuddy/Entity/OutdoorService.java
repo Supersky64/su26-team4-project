@@ -24,37 +24,44 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OutdoorService {
+    
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long serviceID;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @ManyToOne
+  @JsonIgnoreProperties({ "outdoorServices" })
+  @JoinColumn(nullable = false)
+  private Provider provider;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    @JsonIgnoreProperties("outdoorServices")
-    private Provider provider;
+  @Column(nullable = false)
+  private String name;
 
-    @Column(nullable = false)
-    private String name;
+  @Column(nullable = false)
+  private String description;
 
-    @Column(nullable = false)
-    private String description;
+  @Column(nullable = false)
+  private String skillLevel;
 
-    @Column(nullable = false)
-    private String skillLevel;
+  @Column(nullable = false)
+  private String location;
 
-    @Column(nullable = false)
-    private String location;
+  private String gearList;
 
-    @OneToMany(mappedBy = "outdoorService")
-    @JsonIgnore
-    private List<Rsvp> rsvps;
+  @Column(nullable = false)
+  private String date;
 
-    public OutdoorService(Provider provider, String name, String description, String skillLevel, String location) {
-        this.provider = provider;
-        this.name = name;
-        this.description = description;
-        this.skillLevel = skillLevel;
-        this.location = location;
-    }
+  @OneToMany(mappedBy = "outdoorService")
+  @JsonIgnore
+  private List<RSVP> rsvps;
+
+  public OutdoorService(Provider provider, String name, String description, String skillLevel, String location, String gearList, String date){
+    this.provider = provider;
+    this.name = name;
+    this.description = description;
+    this.skillLevel = skillLevel;
+    this.location = location;
+    this.gearList = gearList;
+    this.date = date;
+  }
 }
