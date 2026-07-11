@@ -38,14 +38,20 @@ public class Review {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @ManyToOne
+    @JsonIgnoreProperties({ "reviews", "timeslots" })
+    @JoinColumn(nullable = false)
+    private Provider provider;
+
     private int rating;
     private String comments;
     private String replyText;
 
-    public Review(Customer customer, int rating, String comments, String replyText) {
+    public Review(Customer customer, Provider provider, int rating, String comments, String replyText) {
         this.customer = customer;
         this.rating = rating;
         this.comments = comments;
         this.replyText = replyText;
+        this.provider = provider;
     }
 }
