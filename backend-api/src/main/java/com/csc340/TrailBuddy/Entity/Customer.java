@@ -3,6 +3,7 @@ package com.csc340.TrailBuddy.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Column;
@@ -16,7 +17,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@JsonPropertyOrder({"customerID", "name", "email", "password", "skillLevel", "preference"})
+@JsonPropertyOrder({"customerId", "name", "email", "password", "skillLevel", "preference"})
+
 
 @Entity
 @Table(name = "customers")
@@ -27,7 +29,7 @@ public class Customer {
     
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long customerID;
+  private Long customerId;
 
   @Column(nullable = false)
   private String name;
@@ -36,6 +38,7 @@ public class Customer {
   private String email;
 
   @Column(nullable = false)
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private String password;
 
   @Column(nullable = false)

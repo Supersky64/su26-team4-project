@@ -1,6 +1,7 @@
 package com.csc340.TrailBuddy.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +13,14 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+@JsonPropertyOrder({
+    "id",
+    "customer",
+    "rating",
+    "comments",
+    "replyText"
+})
 
 @Entity
 @Table(name = "reviews")
@@ -26,7 +35,7 @@ public class Review {
 
     @ManyToOne
     @JsonIgnoreProperties({"reviews", "rsvps"})
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     private int rating;

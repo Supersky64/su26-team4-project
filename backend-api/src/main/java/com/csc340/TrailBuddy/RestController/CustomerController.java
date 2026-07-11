@@ -60,7 +60,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
         Customer createdCustomer = customerService.createCustomer(customer);
-        return ResponseEntity.created(null).body(createdCustomer);
+        return ResponseEntity.ok(createdCustomer);
     }
     
     @PutMapping("/{id}")

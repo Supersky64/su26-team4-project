@@ -26,12 +26,12 @@ public class Rsvp {
 
     @ManyToOne
     @JsonIgnoreProperties({"rsvps"})
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @ManyToOne
     @JsonIgnoreProperties({"rsvps"})
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "outdoor_service_id", nullable = false)
     private OutdoorService outdoorService;
 
     private String location;

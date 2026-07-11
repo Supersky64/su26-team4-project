@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.csc340.TrailBuddy.Entity.Review;
 import com.csc340.TrailBuddy.Service.ReviewService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -49,7 +48,15 @@ public class ReviewController {
         List<Review> reviews = reviewService.getReviewsByCustomerId(customerId);
         return ResponseEntity.ok(reviews);
     }
-    
+
+    //For future use, if we want to get reviews by provider ID, we can uncomment the following method and the corresponding method in ReviewService
+/* 
+    @GetMapping("/provider/{providerId}")
+    public ResponseEntity<List<Review>> getReviewsByProviderId(@PathVariable Long providerId) {
+        List<Review> reviews = reviewService.getReviewsByProviderId(providerId);
+        return ResponseEntity.ok(reviews);
+    }
+*/
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Review review) {
         Review createdReview = reviewService.createReview(review);
@@ -57,10 +64,10 @@ public class ReviewController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Review> updateReview(@PathVariable Long id, @RequestBody Review updatedReview) {
+    public ResponseEntity<Review> updateReview(@PathVariable Long id, @RequestBody Review review) {
         try {
-            Review review = reviewService.updateReview(id, updatedReview);
-            return ResponseEntity.ok(review);
+            Review updatedReview = reviewService.updateReview(id, review);
+            return ResponseEntity.ok(updatedReview);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
