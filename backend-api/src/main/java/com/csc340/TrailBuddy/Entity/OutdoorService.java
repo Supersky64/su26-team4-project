@@ -27,7 +27,7 @@ public class OutdoorService {
     
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long serviceID;
+  private Long id;
 
   @ManyToOne
   @JsonIgnoreProperties({ "outdoorServices" })

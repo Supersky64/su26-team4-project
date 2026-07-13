@@ -84,8 +84,8 @@ public class ProviderService {
     providerRepository.deleteById(id);
   }
 
-  public Provider findByEmail(String email) {
-    return providerRepository.findByEmail(email);
+  public Provider findByEmailAddress(String email) {
+    return providerRepository.findByEmailAddress(email);
   }
 
   public List<Provider> findByName(String name) {
@@ -100,7 +100,7 @@ public class ProviderService {
     List<Review> reviews = reviewRepository.findByProviderId(providerId);
 
     Set<Long> customerIds = sessions.stream()
-        .map(session -> session.getCustomer() != null ? session.getCustomer().getCustomerId() : null)
+        .map(session -> session.getCustomer() != null ? session.getCustomer().getId() : null)
         .filter(java.util.Objects::nonNull)
         .collect(Collectors.toSet());
 

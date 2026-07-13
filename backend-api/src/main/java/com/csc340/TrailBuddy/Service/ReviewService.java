@@ -22,7 +22,7 @@ public class ReviewService {
 
 
     public List<Review> getReviewsByCustomerId(Long customerId) {
-        return reviewRepository.findByCustomer_CustomerId(customerId);
+        return reviewRepository.findByCustomerId(customerId);
     }
 
     public List<Review> getReviewsByProviderId(Long providerId) {
@@ -30,7 +30,7 @@ public class ReviewService {
     }
 
     public Review createReview(Review review) {
-        Long customerId = review.getCustomer().getCustomerId();
+        Long customerId = review.getCustomer().getId();
 
         Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new RuntimeException("Customer not found"));
         review.setCustomer(customer); 

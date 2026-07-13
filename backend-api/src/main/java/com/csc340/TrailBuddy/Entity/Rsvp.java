@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class RSVP {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long eventID;
+  private Long id;
 
   @ManyToOne
   @JsonIgnoreProperties({"rsvps"})
