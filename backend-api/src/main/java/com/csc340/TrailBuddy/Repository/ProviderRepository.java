@@ -9,7 +9,7 @@ import com.csc340.TrailBuddy.Entity.Provider;
 @Repository
 public interface ProviderRepository extends JpaRepository<Provider, Long> {
 
-  Provider findByEmail(String email);    //to search by email
+  Provider findByEmailAddress(String email);    //to search by email
 
    List<Provider> findByNameContainingIgnoreCase(String name); //to find by name
 

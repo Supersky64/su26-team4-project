@@ -43,7 +43,7 @@ public class ProviderController {
 
     @GetMapping("/email/{email}")
     public ResponseEntity<Provider> getTrainerByEmail(@PathVariable String email) {
-        Provider provider = providerService.findByEmail(email);
+        Provider provider = providerService.findByEmailAddress(email);
         if (provider != null) {
         return ResponseEntity.ok(provider);
         } else {

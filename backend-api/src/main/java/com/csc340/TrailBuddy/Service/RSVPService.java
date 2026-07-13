@@ -33,7 +33,7 @@ public class RSVPService {
   }
 
   public RSVP updateRegistration(RSVP rsvp) {
-    RSVP existingReg = rsvpRepository.findById(rsvp.getEventID()).orElse(null);
+    RSVP existingReg = rsvpRepository.findById(rsvp.getId()).orElse(null);
     if (existingReg != null) {
       existingReg.setCustomer(rsvp.getCustomer());
       existingReg.setOutdoorService(rsvp.getOutdoorService());
