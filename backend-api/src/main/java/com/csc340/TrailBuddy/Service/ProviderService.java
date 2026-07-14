@@ -19,11 +19,11 @@ import com.csc340.TrailBuddy.Repository.RSVPRepository;
 @Service
 public class ProviderService {
 
-  private final ReviewRepository ReviewRepository;
+  private final ReviewRepository reviewRepository;
   private final ProviderRepository providerRepository;
   private final RSVPRepository rsvpRepository;
 
-  public TrainerService(ReviewRepository reviewRepository, ProviderRepository providerRepository, RSVPRepository rsvpRepository) {
+  public ProviderService(ReviewRepository reviewRepository, ProviderRepository providerRepository, RSVPRepository rsvpRepository) {
     this.reviewRepository = reviewRepository;
     this.providerRepository = providerRepository;
     this.rsvpRepository = rsvpRepository;
