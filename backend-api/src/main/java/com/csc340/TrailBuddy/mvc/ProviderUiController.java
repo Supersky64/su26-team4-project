@@ -1,6 +1,5 @@
 package com.csc340.TrailBuddy.mvc;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.csc340.TrailBuddy.Entity.OutdoorService;
 import com.csc340.TrailBuddy.Entity.Provider;
@@ -70,29 +68,52 @@ public class ProviderUiController {
   public String providerprofile(HttpSession session, Model model) {
     Long providerId = (Long) session.getAttribute("providerId");
     if (providerId == null) {
+      System.out.println("is null");
       return "redirect:/provider/login";
     }
     Optional<Provider> optProvider = providerService.findById(providerId);
     if (!optProvider.isEmpty()) {
       Provider provider = optProvider.get();
       System.out.println(provider.toString());
-      // List<OutdoorService> outdoor_services =
-      // outdoorServiceService.getOutdoorServicesByProviderId(providerId);
-      // insert review stuff here later
       model.addAttribute("provider", provider);
-      // model.addAttribute("outdoorservices", outdoor_services);
     }
     return "provider/providerProfile";
   }
 
-  @PutMapping("/updateProfile/{id}")
-  public String updateProviderProfile(Provider provider, HttpSession session) {
+  @PostMapping("/signup")
+  public String createAccout(Provider provider, HttpSession session, String name, String password, String descritpion, String location, String email){
+    System.out.println("this is running");
+    Provider createdProvider = providerService.createProvider(provider); //latest error here
+    System.out.println(createdProvider.toString());
+    session.setAttribute("providerId", createdProvider.getId());
+    return "redirect:/provider/providerProfile";
+  }
+
+  @GetMapping("/signup")
+  public String createAccountPage(Model model){
+   System.out.println("am here in signup get");
+   model.addAttribute("provider", new Provider());
+    return "providerSignup";
+  }
+
+}
+
+  /*@PostMapping("/updateProfile")
+  public String updateProviderProfile(@PathVariable Long id, @ModelAttribute Provider provider){
+    providerService.updateProviderInfo(id, provider);
+    return "redirect:/provider/providerProfile";
+  }
+
+  @GetMapping("/updatedProfile")
+    public String updatedProfile(){
+      return "redirect:/provider/providerProfile";
+    }
+  }*/
+  /*public String updateProviderProfile(HttpSession session, Provider provider) {
     Long providerId = (Long) session.getAttribute("providerId");
     if (providerId == null) {
       return "redirect:/provider/login";
     }
     providerService.updateProviderInfo(providerId, provider);
-    return "redirect:/trainer/profile";
-  }
-
-}
+    return "redirect:/provider/providerProfile";
+  }*/

@@ -29,7 +29,7 @@
             <p>Current email: <placeholder id="currentEmail">${provider.emailAddress}</placeholder></p>
             <p>Current name: <placeholder id="currentName"></placeholder>${provider.name}</p>
             <p>Current location: <placeholder id="currentLocation">${provider.location}</placeholder></p>
-            <form action="/provider" method="put">
+            <form action="/provider/providerProfile" method="post">
                 <label for="aligned-name" style="padding-right: 30px;">Change email:</label>
             <input id="aligned-name" type="email" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"/>
         </div>
@@ -102,7 +102,7 @@
             </form>
     </fieldset>
     <br>
-    <a class="btn btn-success" href="/provider/providerProfile" role="button">Submit</a>
+    <a href="/provider/providerProfile" class="button">Update</a>
 </form>
     <br>
     <br>

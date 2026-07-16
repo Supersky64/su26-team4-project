@@ -28,7 +28,7 @@
                 <button type="submit">Login</button>
     </form>
 
-    <p><a href="providerSignup.html">Don't have an account?-sign up as provider</a></p>
+    <p><a href="/provider/signup">Don't have an account?-sign up as provider</a></p>
     <p><a href="customerSignup.html">Don't have an account?-sign up as a customer</a></p>
 
     </div>
