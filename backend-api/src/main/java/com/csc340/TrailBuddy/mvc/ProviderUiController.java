@@ -81,10 +81,10 @@ public class ProviderUiController {
   }
 
   @PostMapping("/signup")
-  public String createAccout(Provider provider, HttpSession session, String name, String password, String descritpion, String location, String email){
+  public String createAccout(HttpSession session, String name, String password, String description, String location, String email){
     System.out.println("this is running");
-    Provider createdProvider = new Provider(name, email, password, location, descritpion);
-    providerService.createProvider(createdProvider); //latest error here
+    Provider createdProvider = new Provider(name, email, password, location, description);
+    providerService.createProvider(createdProvider); 
     System.out.println(createdProvider.toString());
     session.setAttribute("providerId", createdProvider.getId());
     return "redirect:/provider/providerProfile";
@@ -93,7 +93,6 @@ public class ProviderUiController {
   @GetMapping("/signup")
   public String createAccountPage(Model model){
    System.out.println("am here in signup get");
-   model.addAttribute("provider", new Provider());
     return "providerSignup";
   }
 
