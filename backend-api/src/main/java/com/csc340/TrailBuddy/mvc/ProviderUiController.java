@@ -1,12 +1,20 @@
 package com.csc340.TrailBuddy.mvc;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.csc340.TrailBuddy.Entity.OutdoorService;
 import com.csc340.TrailBuddy.Entity.Provider;
-import com.csc340.TrailBuddy.Entity.Customer;
+import com.csc340.TrailBuddy.Entity.Review;
 import com.csc340.TrailBuddy.Service.CustomerService;
 import com.csc340.TrailBuddy.Service.OutdoorServiceService;
 import com.csc340.TrailBuddy.Service.ReviewService;
@@ -15,7 +23,7 @@ import jakarta.servlet.http.HttpSession;
 
 import com.csc340.TrailBuddy.Service.ProviderService;
 import com.csc340.TrailBuddy.Service.RSVPService;
-    
+
 @Controller
 @RequestMapping("/provider")
 public class ProviderUiController {
@@ -26,14 +34,15 @@ public class ProviderUiController {
   private final CustomerService customerService;
   private final RSVPService rsvpService;
 
-  public ProviderUiController(ProviderService providerService, OutdoorServiceService outdoorServiceService, ReviewService reviewService,
-     CustomerService customerService, RSVPService rsvpService){
-    
-        this.providerService = providerService;
-        this.outdoorServiceService = outdoorServiceService;
-        this.reviewService = reviewService;
-        this.customerService = customerService;
-        this.rsvpService = rsvpService;
+  public ProviderUiController(ProviderService providerService, OutdoorServiceService outdoorServiceService,
+      ReviewService reviewService,
+      CustomerService customerService, RSVPService rsvpService) {
+
+    this.providerService = providerService;
+    this.outdoorServiceService = outdoorServiceService;
+    this.reviewService = reviewService;
+    this.customerService = customerService;
+    this.rsvpService = rsvpService;
   }
 
   @GetMapping("/login")
@@ -42,17 +51,12 @@ public class ProviderUiController {
   }
 
   @PostMapping("/login")
-  public String login(HttpSession session, String email, String password){
+  public String login(HttpSession session, String email, String password) {
     Provider provider = providerService.findByEmailAddress(email);
-    Customer customer = customerService.findByEmail(email);
     if (provider != null && password.equals(provider.getPassword())) {
       session.setAttribute("providerId", provider.getId());
       return "redirect:/provider/providerProfile";
-    }else if(customer != null && password.equals(customer.getPassword())){
-      session.setAttribute("customerId", customer.getId());
-      return "redirect:/customer/customer";
     }
-
     return "redirect:/provider/login";
   }
 
@@ -61,4 +65,34 @@ public class ProviderUiController {
     session.invalidate();
     return "redirect:/provider/login";
   }
+
+  @GetMapping("/providerProfile")
+  public String providerprofile(HttpSession session, Model model) {
+    Long providerId = (Long) session.getAttribute("providerId");
+    if (providerId == null) {
+      return "redirect:/provider/login";
+    }
+    Optional<Provider> optProvider = providerService.findById(providerId);
+    if (!optProvider.isEmpty()) {
+      Provider provider = optProvider.get();
+      System.out.println(provider.toString());
+      // List<OutdoorService> outdoor_services =
+      // outdoorServiceService.getOutdoorServicesByProviderId(providerId);
+      // insert review stuff here later
+      model.addAttribute("provider", provider);
+      // model.addAttribute("outdoorservices", outdoor_services);
+    }
+    return "provider/providerProfile";
   }
+
+  @PutMapping("/updateProfile/{id}")
+  public String updateProviderProfile(Provider provider, HttpSession session) {
+    Long providerId = (Long) session.getAttribute("providerId");
+    if (providerId == null) {
+      return "redirect:/provider/login";
+    }
+    providerService.updateProviderInfo(providerId, provider);
+    return "redirect:/trainer/profile";
+  }
+
+}

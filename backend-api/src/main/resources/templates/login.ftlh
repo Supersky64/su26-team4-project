@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,31 +10,31 @@
 
 
 <body>
-    
-    <form method="post">
-    <div class="login-container">
 
-        <div class="login-box">
-            <div class="logo">
-                <img src="/../images/trailbuddy_logo.png" alt="">
-            </div>
-            <h3>TrailBuddy</h3>
-            <p>Explore. Discover. Adventure.</p>
+    <form action="/provider/login" method="post">
+        <div class="login-container">
 
-            <input type="email" placeholder="Email">
+            <div class="login-box">
+                <div class="logo">
+                    <img src="/../images/trailbuddy_logo.png" alt="">
+                </div>
+                <h3>TrailBuddy</h3>
+                <p>Explore. Discover. Adventure.</p>
 
-            <input type="password" placeholder="Password">
+                <input type="email" id="email" name="email" placeholder="Email">
 
-            <a href="#"><button>Login</button>
-            </a>
+                <input type="password" id="password" name="password" placeholder="Password">
 
-            <p><a href="providerSignup.html">Don't have an account?-sign up as provider</a></p>
-            <p><a href="customerSignup.html">Don't have an account?-sign up as a customer</a></p>
+                <button type="submit">Login</button>
+    </form>
 
-        </div>
+    <p><a href="providerSignup.html">Don't have an account?-sign up as provider</a></p>
+    <p><a href="customerSignup.html">Don't have an account?-sign up as a customer</a></p>
 
     </div>
-    </form>
+
+    </div>
+
 
 </body>
 

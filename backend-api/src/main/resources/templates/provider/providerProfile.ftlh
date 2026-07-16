@@ -9,29 +9,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Using Bootstrap CSS -->
 
-    <link rel="stylesheet" href="/backend-api/src/main/resources/static/style.css">
+    <link rel="stylesheet" href="/../style.css">
 
 
 <body>
     <nav class="navbar bg-body-tertiary" style="padding-top: 0%; padding-bottom: 0%; justify-content: space-between;">
   <div class="container-fluid" style="background-color: #2a5726;">
     <a class="navbar-brand" href="#">
-      <img src="/backend-api/src/main/resources/static/images/trailbuddy_logo.png" alt="Logo" width="60" height="70" class="d-inline-block align-text-center"><span>TrailBuddy</span>
+      <img src="/../images/trailbuddy_logo.png" alt="Logo" width="60" height="70" class="d-inline-block align-text-center"><span>TrailBuddy</span>
     </a>
-    <a href="../login.html" class="btn btn-secondary" style="margin-right: 27px;">Logout</a>
+    <a href="/provider/login" class="btn btn-secondary" style="margin-right: 27px;">Logout</a>
   </div>
 </nav>
     <div class="profile" style="width: 1000px;">
         <h2 style="text-align: center;">My Profile</h2>
-                <form class="pure-form pure-form-aligned">
-    <fieldset>
+       <form class="pure-form pure-form-aligned">
+       <fieldset>
         <div>
-            <p>Current email: <placeholder id="currentEmail">sample@fool.com</placeholder></p>
-            <p>Current name: <placeholder id="currentName"></placeholder>The name displayed</p>
-            <p>Current location: <placeholder id="currentLocation">Current State</placeholder></p>
-            
-            <label for="aligned-name" style="padding-right: 30px;">Change email:</label>
-            <input id="aligned-name" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"/>
+            <p>Current email: <placeholder id="currentEmail">${provider.emailAddress}</placeholder></p>
+            <p>Current name: <placeholder id="currentName"></placeholder>${provider.name}</p>
+            <p>Current location: <placeholder id="currentLocation">${provider.location}</placeholder></p>
+            <form action="/provider" method="put">
+                <label for="aligned-name" style="padding-right: 30px;">Change email:</label>
+            <input id="aligned-name" type="email" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"/>
         </div>
         <br>
         <div>
@@ -99,10 +99,13 @@
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
+            </form>
     </fieldset>
+    <br>
+    <a class="btn btn-success" href="/provider/providerProfile" role="button">Submit</a>
 </form>
     <br>
-
+    <br>
     <a class="btn btn-warning" href="offeringProvider.html" role="button">View your offerings</a>
     <h2><br>Create a Listing</h2>
 

@@ -98,10 +98,10 @@
                                 </select>
                             </fieldset>
                         </p>
-                        <p style="text-align: center;"><a href="providerProfile.html" class="btn btn-dark">Sign up</a></p>
+                        <p style="text-align: center;"><a href="/provider/providerProfile" class="btn btn-dark">Sign up</a></p>
                         <p>
-                        <a href="customerSignup.html">Sign up as customer</a> •
-                        <a href="login.html">Already have an account? Log in</a>
+                        <a href="/customer/login">Sign up as customer</a> •
+                        <a href="/provider/login">Already have an account? Log in</a>
                     </div>
                     </div>
                 </div>
