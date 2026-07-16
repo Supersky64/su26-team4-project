@@ -83,7 +83,8 @@ public class ProviderUiController {
   @PostMapping("/signup")
   public String createAccout(Provider provider, HttpSession session, String name, String password, String descritpion, String location, String email){
     System.out.println("this is running");
-    Provider createdProvider = providerService.createProvider(provider); //latest error here
+    Provider createdProvider = new Provider(name, email, password, location, descritpion);
+    providerService.createProvider(createdProvider); //latest error here
     System.out.println(createdProvider.toString());
     session.setAttribute("providerId", createdProvider.getId());
     return "redirect:/provider/providerProfile";
