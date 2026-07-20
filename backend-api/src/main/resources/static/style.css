@@ -227,3 +227,15 @@ footer {
     margin-top: 20px;
 
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}

@@ -1,4 +1,4 @@
-package com.csc340.TrailBuddy.RestController;
+package com.csc340.TrailBuddy.Controller;
 
 import java.util.List;
 

@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class RSVP {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long eventID;
 
   @ManyToOne
   @JsonIgnoreProperties({"rsvps"})
@@ -34,13 +34,12 @@ public class RSVP {
   @JoinColumn(nullable = false)
   private OutdoorService outdoorService;
 
-  private String status;
+  private String location;
 
-  public RSVP(Customer customer, OutdoorService outdoorService, String status){
+  public RSVP(Customer customer, OutdoorService outdoorService, String location){
     this.customer = customer;
     this.outdoorService = outdoorService;
-    this.status = status;
+    this.location = location;
   }
 
 }
-
