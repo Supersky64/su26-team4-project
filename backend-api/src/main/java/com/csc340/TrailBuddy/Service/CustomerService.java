@@ -10,7 +10,7 @@ import com.csc340.TrailBuddy.Repository.CustomerRepository;
 
 @Service
 public class CustomerService {
-    
+
     private final CustomerRepository customerRepository;
 
     public CustomerService(CustomerRepository customerRepository) {
@@ -53,6 +53,12 @@ public class CustomerService {
             }
             if (updatedCustomer.getEmail() != null) {
                 customer.setEmail(updatedCustomer.getEmail());
+            }
+            if (updatedCustomer.getSkillLevel() != null) {
+                customer.setSkillLevel(updatedCustomer.getSkillLevel());
+            }
+            if (updatedCustomer.getPreference() != null) {
+                customer.setPreference(updatedCustomer.getPreference());
             }
             return customerRepository.save(customer);
         } else {
