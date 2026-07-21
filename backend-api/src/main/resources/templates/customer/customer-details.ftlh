@@ -15,7 +15,7 @@
     <nav>
 
         <div class="logo">
-            <img src="../images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
+            <img src="/images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
             <span>TrailBuddy</span>
         </div>
 
@@ -97,70 +97,76 @@
 
             <!-- Update Customer Information -->
 
-            <form action="/customer/update/${customer.id}" method="post">
+            <div class="info-container">
 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="${(customer.name)!}" placeholder="Edit Name">
-                
+                <div class="info-box">
 
-                <h3>Change Skill Level</h3>
+                    <h3>Edit Info</h3>
 
+                    <form action="/customer/update/${customer.id}" method="post">
 
-                <select id="skillSelect" name="skillLevel" required>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" value="${(customer.name)!}" placeholder="Edit Name"
+                            required>
 
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" value="${(customer.email)!}" placeholder="Edit Email"
+                            required>
 
-                    <option value="Beginner" <#if customer.skillLevel=="Beginner">
-                        selected
-                        </#if>>
-                        Beginner
-                    </option>
+                        <label for="preference">Favorite Activity:</label>
+                        <input type="text" id="preference" name="preference" value="${(customer.preference)!}"
+                            placeholder="Edit Preference" required>
 
+                        <br><br>
 
-                    <option value="Intermediate" <#if customer.skillLevel=="Intermediate">
-                        selected
-                        </#if>>
-                        Intermediate
-                    </option>
-
-
-                    <option value="Advanced" <#if customer.skillLevel=="Advanced">
-                        selected
-                        </#if>>
-                        Advanced
-                    </option>
+                        <h3>Change Skill Level</h3>
 
 
-                </select>
+                        <select id="skillSelect" name="skillLevel" required>
 
 
-                <br><br>
+                            <option value="Beginner" <#if customer.skillLevel=="Beginner">
+                                selected
+                                </#if>>
+                                Beginner
+                            </option>
 
 
-                <button type="submit">
-                    Save Changes
-                </button>
+                            <option value="Intermediate" <#if customer.skillLevel=="Intermediate">
+                                selected
+                                </#if>>
+                                Intermediate
+                            </option>
 
 
-            </form>
+                            <option value="Advanced" <#if customer.skillLevel=="Advanced">
+                                selected
+                                </#if>>
+                                Advanced
+                            </option>
+
+
+                        </select>
+
+
+                        <br><br>
+
+
+                        <button id="info-button" type="submit">
+                            Save Changes
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
 
 
 
             <br>
-
-
-
-
-
-
-
-            <p>
-                Here are some activities recommended for you.
-            </p>
-
-
-            <button>
-                View Activities
-            </button>
 
 
         </div>
