@@ -84,30 +84,13 @@ public class ProviderService {
     providerRepository.deleteById(id);
   }
 
-  public Provider findByEmailAddress(String email) {
-    return providerRepository.findByEmailAddress(email);
+  public Provider findByEmail(String email) {
+    return providerRepository.findByEmail(email);
   }
 
   public List<Provider> findByName(String name) {
     return providerRepository.findByNameContainingIgnoreCase(name);
   }
 
-   public void viewRegistration(Long providerId) {  //DOESNT WORK NEED TO FIX
-    Provider provider = providerRepository.findById(providerId)
-        .orElseThrow(() -> new RuntimeException("Provider not found with id: " + providerId));
-
-    List<RSVP> sessions = rsvpRepository.findByOutdoorServiceProviderId(providerId);
-    List<Review> reviews = reviewRepository.findByProviderId(providerId);
-
-    Set<Long> customerIds = sessions.stream()
-        .map(session -> session.getCustomer() != null ? session.getCustomer().getId() : null)
-        .filter(java.util.Objects::nonNull)
-        .collect(Collectors.toSet());
-
-    long totalSessions = sessions.stream()
-        .filter(session -> session.getStatus() == null || !"cancelled".equalsIgnoreCase(session.getStatus()))
-        .count();
-
-  }
   
 }

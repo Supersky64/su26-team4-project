@@ -91,11 +91,26 @@ public class ProviderUiController {
   }
 
   @GetMapping("/signup")
-  public String createAccountPage(Model model){
+  public String createAccountPage(){
    System.out.println("am here in signup get");
     return "providerSignup";
   }
-
+  
+  @PutMapping("/updateProfile")
+  public String updateProfile(HttpSession session, Model model){
+    Long providerId = (Long) session.getAttribute("providerId");
+    if (providerId == null) {
+      System.out.println("is null");
+      return "redirect:/provider/login";
+    }
+    Optional<Provider> optProvider = providerService.findById(providerId);
+    if (!optProvider.isEmpty()) {
+      Provider provider = optProvider.get();
+      System.out.println(provider.toString());
+      model.addAttribute("provider", provider);
+    }
+    return "providerProfile";
+  }
 }
 
   /*@PostMapping("/updateProfile")
