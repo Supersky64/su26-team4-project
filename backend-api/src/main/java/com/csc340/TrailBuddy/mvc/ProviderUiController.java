@@ -50,7 +50,7 @@ public class ProviderUiController {
 
   @PostMapping("/login")
   public String login(HttpSession session, String email, String password) {
-    Provider provider = providerService.findByEmailAddress(email);
+    Provider provider = providerService.findByEmail(email);
     if (provider != null && password.equals(provider.getPassword())) {
       session.setAttribute("providerId", provider.getId());
       return "redirect:/provider/providerProfile";
@@ -95,22 +95,25 @@ public class ProviderUiController {
    System.out.println("am here in signup get");
     return "providerSignup";
   }
+
+  //@PostMapping("/update/{id}")
+ // public String ud
   
-  @PutMapping("/updateProfile")
-  public String updateProfile(HttpSession session, Model model){
+  /*@PostMapping("/updateProfile")
+  public String updateProfile(HttpSession session){
     Long providerId = (Long) session.getAttribute("providerId");
     if (providerId == null) {
       System.out.println("is null");
       return "redirect:/provider/login";
     }
     Optional<Provider> optProvider = providerService.findById(providerId);
-    if (!optProvider.isEmpty()) {
-      Provider provider = optProvider.get();
-      System.out.println(provider.toString());
-      model.addAttribute("provider", provider);
-    }
+    Provider provider = optProvider.get();
+    System.out.println("Print: " + provider);
+    providerService.updateProviderInfo(providerId, provider);
+    System.out.println("New Proivder info: " + provider);
+
     return "providerProfile";
-  }
+  }*/
 }
 
   /*@PostMapping("/updateProfile")

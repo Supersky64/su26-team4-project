@@ -29,6 +29,7 @@
             <p>Current email: <placeholder id="currentEmail">${provider.emailAddress}</placeholder></p>
             <p>Current name: <placeholder id="currentName"></placeholder>${provider.name}</p>
             <p>Current location: <placeholder id="currentLocation">${provider.location}</placeholder></p>
+            
             <form action="/provider/providerProfile" method="post">
                 <label for="aligned-name" style="padding-right: 30px;">Change email:</label>
             <input id="aligned-name" type="email" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"/>
@@ -99,10 +100,9 @@
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
-            </form>
     </fieldset>
     <br>
-    <a href="/provider/providerProfile" class="button">Update</a>
+    <button class="submit">Update</button>
 </form>
     <br>
     <br>
