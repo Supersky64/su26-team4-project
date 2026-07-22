@@ -6,10 +6,12 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import com.csc340.TrailBuddy.Entity.Customer;
 import com.csc340.TrailBuddy.Entity.OutdoorService;
 import com.csc340.TrailBuddy.Entity.Provider;
 import com.csc340.TrailBuddy.Entity.Review;
@@ -53,7 +55,7 @@ public class ProviderUiController {
     Provider provider = providerService.findByEmail(email);
     if (provider != null && password.equals(provider.getPassword())) {
       session.setAttribute("providerId", provider.getId());
-      return "redirect:/provider/providerProfile";
+      return "redirect:/provider/providerProfile/" + provider.getId();
     }
     return "redirect:/provider/login";
   }
@@ -64,74 +66,41 @@ public class ProviderUiController {
     return "redirect:/provider/login";
   }
 
-  @GetMapping("/providerProfile")
-  public String providerprofile(HttpSession session, Model model) {
-    Long providerId = (Long) session.getAttribute("providerId");
-    if (providerId == null) {
-      System.out.println("is null");
-      return "redirect:/provider/login";
-    }
-    Optional<Provider> optProvider = providerService.findById(providerId);
-    if (!optProvider.isEmpty()) {
-      Provider provider = optProvider.get();
-      System.out.println(provider.toString());
+  @GetMapping("/providerProfile/{id}")
+  public String getProviderById(@PathVariable Long id, Model model) {
+    Provider provider = providerService.findById(id).orElse(null);
+
+    if (provider != null) {
       model.addAttribute("provider", provider);
+      return "provider/providerProfile";
     }
-    return "provider/providerProfile";
+
+    return "login";
   }
 
   @PostMapping("/signup")
-  public String createAccout(HttpSession session, String name, String password, String description, String location, String email){
+  public String createAccout(HttpSession session, String name, String password, String description, String location,
+      String email) {
     System.out.println("this is running");
     Provider createdProvider = new Provider(name, email, password, location, description);
-    providerService.createProvider(createdProvider); 
+    providerService.createProvider(createdProvider);
     System.out.println(createdProvider.toString());
     session.setAttribute("providerId", createdProvider.getId());
     return "redirect:/provider/providerProfile";
   }
 
   @GetMapping("/signup")
-  public String createAccountPage(){
-   System.out.println("am here in signup get");
+  public String createAccountPage() {
+    System.out.println("am here in signup get");
     return "providerSignup";
   }
 
-  //@PostMapping("/update/{id}")
- // public String ud
-  
-  /*@PostMapping("/updateProfile")
-  public String updateProfile(HttpSession session){
-    Long providerId = (Long) session.getAttribute("providerId");
-    if (providerId == null) {
-      System.out.println("is null");
-      return "redirect:/provider/login";
-    }
-    Optional<Provider> optProvider = providerService.findById(providerId);
-    Provider provider = optProvider.get();
-    System.out.println("Print: " + provider);
-    providerService.updateProviderInfo(providerId, provider);
-    System.out.println("New Proivder info: " + provider);
+  @PostMapping("/update/{id}")
+  public String updateProvider(@PathVariable Long id, Provider provider) {
 
-    return "providerProfile";
-  }*/
-}
-
-  /*@PostMapping("/updateProfile")
-  public String updateProviderProfile(@PathVariable Long id, @ModelAttribute Provider provider){
     providerService.updateProviderInfo(id, provider);
-    return "redirect:/provider/providerProfile";
+
+    return "redirect:/provider/providerProfile/" + id;
   }
 
-  @GetMapping("/updatedProfile")
-    public String updatedProfile(){
-      return "redirect:/provider/providerProfile";
-    }
-  }*/
-  /*public String updateProviderProfile(HttpSession session, Provider provider) {
-    Long providerId = (Long) session.getAttribute("providerId");
-    if (providerId == null) {
-      return "redirect:/provider/login";
-    }
-    providerService.updateProviderInfo(providerId, provider);
-    return "redirect:/provider/providerProfile";
-  }*/
+}
