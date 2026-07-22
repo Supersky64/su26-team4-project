@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>All offerings</title>
 
 </head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Using Bootstrap CSS -->
 
-    <link rel="stylesheet" href="../customer/style.css">
+    <link rel="stylesheet" href="/../style.css">
 
 
 <body>
     <nav class="navbar bg-body-tertiary" style="padding-top: 0%; padding-bottom: 0%; justify-content: space-between;">
   <div class="container-fluid" style="background-color: #2a5726;">
     <a class="navbar-brand" href="#">
-      <img src="../images/trailbuddy_logo.png" alt="Logo" width="60" height="70" class="d-inline-block align-text-center"><span>TrailBuddy</span>
+      <img src="/../images/trailbuddy_logo.png" alt="Logo" width="60" height="70" class="d-inline-block align-text-center"><span>TrailBuddy</span>
     </a>
-    <a href="providerProfile.html" class="btn btn-success" style="margin-left: 1450px;">Profile</a>
-    <a href="../customer/login.html" class="btn btn-secondary" style="margin-right: 27px;">Logout</a>
+    <a href="/provider/providerProfile" class="btn btn-success" style="margin-left: 1450px;">Profile</a>
+    <a href="/provider/login" class="btn btn-secondary" style="margin-right: 27px;">Logout</a>
   </div>
 </nav>
 

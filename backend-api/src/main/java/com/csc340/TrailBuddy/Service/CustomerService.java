@@ -39,7 +39,7 @@ public class CustomerService {
             Customer customer = existingCustomer.get();
             customer.setName(updatedCustomer.getName());
             customer.setEmail(updatedCustomer.getEmail());
-            customer.setPassword(updatedCustomer.getPassword());
+            customer.setPassword(passwordEncoder.encode(updatedCustomer.getPassword()));
             customer.setSkillLevel(updatedCustomer.getSkillLevel());
             customer.setPreference(updatedCustomer.getPreference());
             return customerRepository.save(customer);

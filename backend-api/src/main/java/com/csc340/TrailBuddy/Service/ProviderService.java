@@ -71,7 +71,7 @@ public class ProviderService {
         p.setEmailAddress(updatedProvider.getEmailAddress());
       }
       if (updatedProvider.getPassword() != null) {
-        p.setPassword(updatedProvider.getPassword());
+        p.setPassword(passwordEncoder.encode(updatedProvider.getPassword()));
       }
       if (updatedProvider.getLocation() != null) {
         p.setLocation(updatedProvider.getLocation());
