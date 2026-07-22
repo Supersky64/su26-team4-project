@@ -31,8 +31,8 @@
                 <p>Current email: <placeholder id="currentEmail">${provider.emailAddress}</placeholder>
                 </p>
                 <p>Current name: <placeholder id="currentName"></placeholder>${provider.name}</p>
-                <p>Current location: <placeholder id="currentLocation">${provider.location}</placeholder>
-                </p>
+                <p>Current location: <placeholder id="currentLocation">${provider.location}</placeholder></p>
+                <p>Current description: <placeholder id="currentDescription">${provider.description}</placeholder></p>
 
                 <form action="/provider/update/${provider.id?c}" method="post">
                     <label for="aligned-name" style="padding-right: 30px;">Change email:</label>
@@ -49,6 +49,12 @@
             <div>
                 <label for="aligned-foo" style="padding-right: 30px;">Change name: </label>
                 <input id="aligned-foo" type="text" id="name" name="name" required
+                    style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
+            </div>
+            <br>
+            <div>
+                <label for="aligned-foo" style="padding-right: 30px;">Change description: </label>
+                <input id="aligned-foo" type="text" id="description" name="description" required
                     style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
             </div>
             <br>
@@ -114,7 +120,7 @@
         </div>
         <br>
         <br>
-        <a class="btn btn-warning" href="offeringProvider.html" role="button">View your offerings</a>
+        <a class="btn btn-warning" href="/provider/OfferingProvider" role="button">View your offerings</a>
         <h2><br>Create a Listing</h2>
 
         <div>
