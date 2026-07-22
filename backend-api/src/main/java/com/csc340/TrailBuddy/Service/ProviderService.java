@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.csc340.TrailBuddy.Entity.Review;
@@ -15,18 +16,20 @@ import com.csc340.TrailBuddy.Repository.ReviewRepository;
 import com.csc340.TrailBuddy.Repository.ProviderRepository;
 import com.csc340.TrailBuddy.Repository.RSVPRepository;
 
-
 @Service
 public class ProviderService {
 
   private final ReviewRepository reviewRepository;
   private final ProviderRepository providerRepository;
   private final RSVPRepository rsvpRepository;
+  private final PasswordEncoder passwordEncoder;
 
-  public ProviderService(ReviewRepository reviewRepository, ProviderRepository providerRepository, RSVPRepository rsvpRepository) {
+  public ProviderService(ReviewRepository reviewRepository, ProviderRepository providerRepository,
+      RSVPRepository rsvpRepository, PasswordEncoder passwordEncoder) {
     this.reviewRepository = reviewRepository;
     this.providerRepository = providerRepository;
     this.rsvpRepository = rsvpRepository;
+    this.passwordEncoder = passwordEncoder;
   }
 
   public List<Provider> getAllProviders() {
@@ -38,6 +41,7 @@ public class ProviderService {
   }
 
   public Provider createProvider(Provider p) {
+    p.setPassword(passwordEncoder.encode(p.getPassword()));
     return providerRepository.save(p);
   }
 
@@ -47,7 +51,7 @@ public class ProviderService {
       Provider provider = existingProvider.get();
       provider.setName(updatedProvider.getName());
       provider.setEmailAddress(updatedProvider.getEmailAddress());
-      provider.setPassword(updatedProvider.getPassword());
+      provider.setPassword(passwordEncoder.encode(updatedProvider.getPassword()));
       provider.setLocation(updatedProvider.getLocation());
       provider.setDescription(updatedProvider.getDescription());
       return providerRepository.save(provider);
@@ -69,7 +73,7 @@ public class ProviderService {
       if (updatedProvider.getPassword() != null) {
         p.setPassword(updatedProvider.getPassword());
       }
-      if (updatedProvider.getLocation() != null){
+      if (updatedProvider.getLocation() != null) {
         p.setLocation(updatedProvider.getLocation());
       }
       p.setDescription(updatedProvider.getDescription());
@@ -79,7 +83,6 @@ public class ProviderService {
       throw new RuntimeException("Trainer not found with ID: " + id);
     }
   }
-
 
   public void deleteProvider(Long id) {
     providerRepository.deleteById(id);
@@ -93,5 +96,4 @@ public class ProviderService {
     return providerRepository.findByNameContainingIgnoreCase(name);
   }
 
-  
 }

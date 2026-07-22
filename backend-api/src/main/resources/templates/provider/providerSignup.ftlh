@@ -8,6 +8,9 @@
     <!--Using Pure CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Using Bootstrap CSS -->
+
+    <link rel="stylesheet" href="/../style.css">
+
     <style>
         .mainContent {
             display:block;
@@ -25,24 +28,30 @@
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center;">Provider sign-up</h5>
                         <p class="card-text">
-                            <fieldset>
-                                <form class="pure-form">
+                            <form action="/provider/signup" method="post">
+                            
+                                
                                 <label for="email">Email:</label>
-                                <input id="email" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: 27px;" required=""/>
-                                </form>
+                                <input id="email" name="email" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: 27px;" required=""/>
+                                
                                 <br>
-                                 <form class="pure-form">
+                                 
                                 <label for="password">Password:</label>
-                                <input id="password" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required=""/>
-                                </form>
+                                <input id="password" name="password" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required=""/>
+                                
                                 <br>
-                                 <form class="pure-form">
+                                 
                                 <label for="name">Name:</label>
-                                <input id="name" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: 24px" required=""/>
-                                </form>
+                                <input id="name" name="name" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: 24px" required=""/>
+                                
                                 <br>
+                                <label for="description">Description:</label>
+                                <input id="description" name="description" type="text" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: 24px" required=""/>
+                                
+                                <br>
+                                
                                 <label for="location">State:</label>
-                                <select id="location" name="State"  style="margin-left: 31px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
+                                <select id="location" name="location"  style="margin-left: 31px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
                                     <option value="">Select State</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -96,12 +105,15 @@
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
-                            </fieldset>
-                        </p>
-                        <p style="text-align: center;"><a href="providerProfile.html" class="btn btn-dark">Sign up</a></p>
-                        <p>
-                        <a href="../customer/customerSignup.html">Sign up as customer</a> •
-                        <a href="../customer/login.html">Already have an account? Log in</a>
+                            
+                             <button type="submit">Sign up</button>
+                            
+                            </form>
+                       
+                    
+                        <p></p>
+                        <a href="/customer/signup">Sign up as customer</a> •
+                        <a href="/login">Already have an account? Log in</a>
                     </div>
                     </div>
                 </div>
