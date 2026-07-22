@@ -80,12 +80,13 @@ public class ProviderService {
     }
   }
 
+
   public void deleteProvider(Long id) {
     providerRepository.deleteById(id);
   }
 
   public Provider findByEmail(String email) {
-    return providerRepository.findByEmail(email);
+    return providerRepository.findByEmailAddress(email);
   }
 
   public List<Provider> findByName(String name) {
