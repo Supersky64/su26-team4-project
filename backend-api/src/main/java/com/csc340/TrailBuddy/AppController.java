@@ -12,7 +12,7 @@ public class AppController {
 
 @GetMapping({ "", "/"})
 public String mainPage() {
-    return "/login";
+    return "login";
    }
 
    @GetMapping("/live")
