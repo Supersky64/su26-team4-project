@@ -43,7 +43,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
                     if (authority.getAuthority().equals("ROLE_PROVIDER")) {
                         Provider provider = providerService.findByEmail(email);
-                        response.sendRedirect("/provider/profile/" + provider.getId());
+                        response.sendRedirect("/provider/providerProfile/" + provider.getId());
                         return;
                     }
                 }

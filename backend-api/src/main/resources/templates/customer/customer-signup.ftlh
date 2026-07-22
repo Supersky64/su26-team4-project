@@ -72,6 +72,8 @@
 
                 <p>Already have an account?</p>
                 <a href="/login">Log In</a>
+                <p>Sign up as Provider?</p>
+                <a href="/provider/signup">Sign Up</a>
 
             </div>
 
