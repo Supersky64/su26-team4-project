@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.csc340.TrailBuddy.Entity.Customer;
 import com.csc340.TrailBuddy.Service.CustomerService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/customer")
 public class CustomerUiController {
@@ -22,6 +24,7 @@ public class CustomerUiController {
     public CustomerUiController(CustomerService customerService) {
         this.customerService = customerService;
     }
+
 
     @GetMapping("/profile/{id}")
     public String getCustomerById(@PathVariable Long id, Model model) {

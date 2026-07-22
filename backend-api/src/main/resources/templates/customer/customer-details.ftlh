@@ -21,7 +21,7 @@
 
         <div>
             <a href="../customer/index.html">Activities</a>
-            <a href="../customer/login.html">Logout</a>
+            <a href="/login">Logout</a>
         </div>
 
     </nav>
