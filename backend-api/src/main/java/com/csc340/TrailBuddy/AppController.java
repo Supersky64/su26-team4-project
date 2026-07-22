@@ -1,4 +1,4 @@
-package com.csc340.TrailBuddy;
+/*package com.csc340.TrailBuddy;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,13 +10,13 @@ public class AppController {
   public AppController(){
   }
 
-@GetMapping({ "", "/", "/login" })
+@GetMapping({ "", "/"})
 public String mainPage() {
-    return "login";
+    return "/login";
    }
 
    @GetMapping("/live")
   public ResponseEntity<String> pulse() {
     return ResponseEntity.ok("App is live");
   }
-}
+}*/
