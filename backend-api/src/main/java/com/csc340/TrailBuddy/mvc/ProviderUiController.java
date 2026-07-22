@@ -1,4 +1,4 @@
-package com.csc340.TrailBuddy.mvc;
+package com.csc340.TrailBuddy.MVC;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,26 +45,6 @@ public class ProviderUiController {
     this.rsvpService = rsvpService;
   }
 
-  @GetMapping("/login")
-  public String login() {
-    return "login";
-  }
-
-  @PostMapping("/login")
-  public String login(HttpSession session, String email, String password) {
-    Provider provider = providerService.findByEmail(email);
-    if (provider != null && password.equals(provider.getPassword())) {
-      session.setAttribute("providerId", provider.getId());
-      return "redirect:/provider/providerProfile/" + provider.getId();
-    }
-    return "redirect:/provider/login";
-  }
-
-  @GetMapping("/logout")
-  public String logout(HttpSession session) {
-    session.invalidate();
-    return "redirect:/provider/login";
-  }
 
   @GetMapping("/providerProfile/{id}")
   public String getProviderById(@PathVariable Long id, Model model) {
@@ -92,7 +72,7 @@ public class ProviderUiController {
   @GetMapping("/signup")
   public String createAccountPage() {
     System.out.println("am here in signup get");
-    return "providerSignup";
+    return "provider/providerSignup";
   }
 
   @PostMapping("/update/{id}")

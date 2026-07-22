@@ -15,13 +15,13 @@
     <nav>
 
         <div class="logo">
-            <img src="../images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
+            <img src="/images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
             <span>TrailBuddy</span>
         </div>
 
         <div>
-            <a href="../customer/index.html">Home</a>
-            <a href="../customer/login.html">Logout</a>
+            <a href="../customer/index.html">Activities</a>
+            <a href="/login">Logout</a>
         </div>
 
     </nav>
@@ -30,236 +30,192 @@
 
         <h1>Hi, ${customer.name}</h1>
 
-        <br>
+        <div class="profile-grid">
 
-        <h3>${customer.name}</h3>
+            <div>
 
+                <div class="profile-card">
 
-        <p>
-            <strong>Email:</strong>
-            ${customer.email}
-        </p>
+                    <h2>Personal Information</h2>
 
+                    <br>
 
-        <p>
-            <strong>Favorite Activity:</strong>
-            ${customer.preference}
-        </p>
+                    <h3>${customer.name}</h3>
 
 
+                    <p>
+                        <strong>Email:</strong>
+                        ${customer.email}
+                    </p>
 
-        <br>
 
-
-        <p>
-
-            Current Skill Level:
-
-            <span id="currentSkill" class="tag">
-
-                ${customer.skillLevel}
-
-            </span>
-
-        </p>
+                    <p>
+                        <strong>Favorite Activity:</strong>
+                        ${customer.preference}
+                    </p>
 
 
 
-        <br>
+                    <br>
 
 
-        <h3>Based on your skill level: </h3>
+                    <p>
 
+                        Current Skill Level:
 
-        <div class="card">
+                        <span id="currentSkill" class="tag">
 
+                            ${customer.skillLevel}
 
-            <h3 id="recommendation">
+                        </span>
 
-                <#if customer.skillLevel=="Beginner">
+                    </p>
 
-                    Something easy like a relaxing forest walk.
+                </div>
 
-                    <#elseif customer.skillLevel=="Intermediate">
+                <div class="profile-card">
 
-                        Let's try something more challenging, like a mountain hike!
+                    <h2>Based on your skill level: </h2>
+
+                    <br>
+
+                    <h3 id="recommendation">
+
+                        <#if customer.skillLevel=="Beginner">
+
+                            Something easy like a relaxing forest walk.
+
+                            <#elseif customer.skillLevel=="Intermediate">
+
+                                Let's try something more challenging, like a mountain hike!
+
+                                <#else>
+
+                                    You're ready for a wilderness expedition!
+                        </#if>
+                    </h3>
+
+                    <br>
+
+                    <button>View Activities</button>
+
+                </div>
+
+                <div class="profile-card">
+                    <h3>Upcoming Trips</h3>
+
+                    <#if customer.rsvps?has_content>
+
+                        <#list customer.rsvps as rsvp>
+
+                            <p>Trip RSVP #${rsvp.id}</p>
+
+                        </#list>
+
 
                         <#else>
 
-                            You're ready for a wilderness expedition!
-                </#if>
+                            <p>No upcoming trips.</p>
+
+                    </#if>
+                </div>
+
+                <div class="profile-card">
+
+                    <h3>Reviews</h3>
+
+                    <#if customer.reviews?has_content>
+
+                        <#list customer.reviews as review>
+
+                            <p>Rating: ${review.rating}/5</p>
+                            <p>"${review.comments}"</p>
+                            <hr>
+
+                        </#list>
 
 
-            </h3>
 
+                        <#else>
 
-            <br>
+                            <p>No reviews yet.</p>
+
+                    </#if>
+
+                </div>
+            </div>
 
             <!-- Update Customer Information -->
 
-            <form action="/customer/update/${customer.id}" method="post">
+            <div>
 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="${(customer.name)!}" placeholder="Edit Name">
-                
+                <div class="info-box">
 
-                <h3>Change Skill Level</h3>
+                    <h3>Edit Info</h3>
 
+                    <form action="/customer/update/${customer.id}" method="post">
 
-                <select id="skillSelect" name="skillLevel" required>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" value="${(customer.name)!}" placeholder="Edit Name"
+                            required>
 
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" value="${(customer.email)!}" placeholder="Edit Email"
+                            required>
 
-                    <option value="Beginner" <#if customer.skillLevel=="Beginner">
-                        selected
-                        </#if>>
-                        Beginner
-                    </option>
+                        <label for="preference">Favorite Activity:</label>
+                        <input type="text" id="preference" name="preference" value="${(customer.preference)!}"
+                            placeholder="Edit Preference" required>
 
+                        <br><br>
 
-                    <option value="Intermediate" <#if customer.skillLevel=="Intermediate">
-                        selected
-                        </#if>>
-                        Intermediate
-                    </option>
-
-
-                    <option value="Advanced" <#if customer.skillLevel=="Advanced">
-                        selected
-                        </#if>>
-                        Advanced
-                    </option>
+                        <h3>Change Skill Level</h3>
 
 
-                </select>
+                        <select id="skillSelect" name="skillLevel" required>
 
 
-                <br><br>
+                            <option value="Beginner" <#if customer.skillLevel=="Beginner">
+                                selected
+                                </#if>>
+                                Beginner
+                            </option>
 
 
-                <button type="submit">
-                    Save Changes
-                </button>
+                            <option value="Intermediate" <#if customer.skillLevel=="Intermediate">
+                                selected
+                                </#if>>
+                                Intermediate
+                            </option>
 
 
-            </form>
+                            <option value="Advanced" <#if customer.skillLevel=="Advanced">
+                                selected
+                                </#if>>
+                                Advanced
+                            </option>
 
 
-
-            <br>
-
+                        </select>
 
 
+                        <br><br>
 
 
+                        <button id="info-button" type="submit">
+                            Save Changes
+                        </button>
 
 
-            <p>
-                Here are some activities recommended for you.
-            </p>
+                    </form>
 
+                </div>
 
-            <button>
-                View Activities
-            </button>
-
+            </div>
 
         </div>
 
-
-
-
-        <br>
-
-
-
-
-        <h3>Upcoming Trips</h3>
-
-
-
-        <#if customer.rsvps?has_content>
-
-
-            <#list customer.rsvps as rsvp>
-
-
-                <p>
-
-                    Trip RSVP #${rsvp.id}
-
-                </p>
-
-
-            </#list>
-
-
-            <#else>
-
-
-                <p>
-                    No upcoming trips.
-                </p>
-
-
-        </#if>
-
-
-
-
-        <br>
-
-
-
-
-        <h3>Reviews</h3>
-
-
-
-        <#if customer.reviews?has_content>
-
-
-            <#list customer.reviews as review>
-
-
-                <p>
-
-                    Rating:
-                    ${review.rating}/5
-
-                </p>
-
-
-                <p>
-
-                    "${review.comments}"
-
-                </p>
-
-
-                <hr>
-
-
-            </#list>
-
-
-
-            <#else>
-
-
-                <p>
-                    No reviews yet.
-                </p>
-
-
-
-        </#if>
-
-
-
-
     </div>
-
-
 
 </body>
 

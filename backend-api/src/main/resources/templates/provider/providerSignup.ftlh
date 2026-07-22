@@ -112,8 +112,8 @@
                        
                     
                         <p></p>
-                        <a href="/customer/login">Sign up as customer</a> •
-                        <a href="/provider/login">Already have an account? Log in</a>
+                        <a href="/customer/signup">Sign up as customer</a> •
+                        <a href="/login">Already have an account? Log in</a>
                     </div>
                     </div>
                 </div>

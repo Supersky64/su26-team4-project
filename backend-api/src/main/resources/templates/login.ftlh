@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/../style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 
 <body>
 
-    <form action="/provider/login" method="post">
+    <form action="/login" method="post">
         <div class="login-container">
 
             <div class="login-box">
@@ -29,7 +29,7 @@
     </form>
 
     <p><a href="/provider/signup">Don't have an account?-sign up as provider</a></p>
-    <p><a href="customerSignup.html">Don't have an account?-sign up as a customer</a></p>
+    <p><a href="/customer/signup">Don't have an account?-sign up as a customer</a></p>
 
     </div>
 

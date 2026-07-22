@@ -27,7 +27,7 @@ nav {
     font-weight: bold;
 }
 
-.logo img{
+.logo img {
     width: 60px;
     height: 60px;
     object-fit: contain;
@@ -133,13 +133,124 @@ button:hover {
     border-radius: 10px;
 }
 
+/* Customer Signup */
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.signup-card {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .12);
+}
+
+.signup-card h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2a5726;
+}
+
+.signup-card p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.signup-card label {
+    font-weight: bold;
+    margin-bottom: -8px;
+}
+
+.signup-card input,
+.signup-card select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.signup-card button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.signup-links {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.signup-links a {
+    color: #2a5726;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-links a:hover {
+    text-decoration: underline;
+}
+
+/*Customer Profile*/
+
 .profile {
     background-color: white;
-    width: 500px;
+    width: 90%;
+    max-width: 1100px;
     margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.info-container {
+    width: 100%;
+}
+
+.info-box {
+    background-color: #2a5726;
+    color: white;
+    width: 100%;
     padding: 30px;
     border-radius: 15px;
 }
+
+.info-box input,
+.info-box select {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+#info-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 
 .details {
     background-color: white;
@@ -234,7 +345,8 @@ form {
     gap: 15px;
 }
 
-form input, textarea {
+form input,
+textarea {
     padding: 12px;
     border-radius: 8px;
     border: none;

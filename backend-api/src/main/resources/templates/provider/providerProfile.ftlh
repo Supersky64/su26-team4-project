@@ -21,7 +21,7 @@
                 <img src="/../images/trailbuddy_logo.png" alt="Logo" width="60" height="70"
                     class="d-inline-block align-text-center"><span>TrailBuddy</span>
             </a>
-            <a href="/provider/login" class="btn btn-secondary" style="margin-right: 27px;">Logout</a>
+            <a href="/login" class="btn btn-secondary" style="margin-right: 27px;">Logout</a>
         </div>
     </nav>
     <div class="profile" style="width: 1000px;">
@@ -115,35 +115,34 @@
                 <option value="WY">Wyoming</option>
             </select>
             <br>
-            <button class="submit">Update</button>
+            <button class="submit">Update Profile</button>
         </form>
         </div>
         <br>
         <br>
         <a class="btn btn-warning" href="/provider/OfferingProvider" role="button">View your offerings</a>
         <h2><br>Create a Listing</h2>
-
+        <form>
         <div>
-
             <label for="aligned-name" style="padding-right: 100px;">Name:</label>
             <input id="aligned-name" type="text" class="pure-input-1"
-                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" />
+                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" required/>
         </div>
         <br>
         <div>
             <label for="date" style="padding-right: 109px;">Date: </label>
-            <input id="date" type="date" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
+            <input id="date" type="date" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required/>
         </div>
         <br>
         <div>
             <label for="description" style="padding-right: 62px;">Description: </label>
-            <textarea id="description" name="des" rows="4" cols="50"
-                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+            <input id="description" name="description" rows="4" cols="50"
+                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required/>
         </div>
         <br>
         <label for="location" style="padding-right: 25px;">Select State:</label>
-        <select id="location" name="State"
-            style="margin-left: 31px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+        <select id="location" name="location"
+            style="margin-left: 31px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
             <option value="notNeeded">Select State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -204,9 +203,9 @@
         </div>
         <br>
         <label for="skill-level" style="padding-right: 12px;">Select Skill level:</label>
-        <select id="skill-level" name="skill"
-            style="margin-left: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
-            <option value="none">Select Skill</option>
+        <select id="skill-level" name="skillLevel"
+            style="margin-left: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
+            <option value="">Select Skill</option>
             <option value="begineer">Begineer</option>
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
@@ -215,11 +214,10 @@
         <div>
 
             <label for="aligned-list" style="padding-right: 43px;">Gear Checklist:</label>
-            <input id="aligned-lsit" type="text" class="pure-input-1"
+            <input id="aligned-lsit" type="text" name="gearList" class="pure-input-1"
                 style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" /><span>
                 Seperate with commas</span>
         </div>
-        </fieldset>
         <br><br>
         <a class="btn btn-success" href="offeringProvider.html" role="button">Create</a>
         </form>
