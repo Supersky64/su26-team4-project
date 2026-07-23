@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
-    <link rel="stylesheet" href="style.css">
+    <title>${pageTitle}</title>
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -13,85 +14,82 @@
     <nav>
 
         <div class="logo">
-            <img src="../images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
+            <img src="/images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
             <span>TrailBuddy</span>
         </div>
 
         <div>
-            <a href="../customer/index.html">Home</a>
-            <a href="../customer/customer.html">Profile</a>
-            <a href="../customer/login.html">Logout</a>
+            <a href="/services">Home</a>
+            <a href="/customer/profile/${customerId?c}">Profile</a>
+            <a href="/login">Logout</a>
         </div>
 
     </nav>
 
 
-
     <div class="details">
 
-
-        <h1>Activity 1</h1>
+        <h1>${outdoorService.name}</h1>
 
         <br>
 
-        <img>
-
+        <img src="" alt="Activity Image">
 
         <br><br>
-
 
         <h3>Difficulty</h3>
 
         <span class="tag">
-            Beginner
+            ${outdoorService.skillLevel}
         </span>
 
+        <br><br>
+
+        <h3>Location</h3>
+
+        <p>${outdoorService.location}</p>
+
+        <h3>Date</h3>
+
+        <p>${outdoorService.date}</p>
+
+        <h3>Provider</h3>
+
+        <p>${outdoorService.provider.name}</p>
 
         <h3>About This Activity</h3>
 
         <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.
+            ${outdoorService.description}
         </p>
 
-
         <br>
-
 
         <h3>Gear Checklist</h3>
 
-        <ul>
-
-            <li>Hiking Boots</li>
-            <li>Water Bottle</li>
-            <li>Backpack</li>
-            <li>Weather Appropriate Clothing</li>
-
-        </ul>
-
+        <#if outdoorService.gearList?? && outdoorService.gearList?has_content>
+            <ul>
+                <#list outdoorService.gearList?split(",") as gear>
+                    <li>${gear?trim}</li>
+                </#list>
+            </ul>
+        <#else>
+            <p>No gear required.</p>
+        </#if>
 
         <br>
-
 
         <h3>Reviews</h3>
 
-        <p>
-            ★★★★★
-            Great guide and amazing views!
-        </p>
+        <p>No reviews yet.</p>
 
         <br>
 
-        <button>
-            Register <!--once you hit the register button this should be replaced with unregister-->
-        </button>
-
+        <form action="/rsvp/register/${outdoorService.id}" method="post">
+            <button type="submit">
+                Register
+            </button>
+        </form>
 
     </div>
 
