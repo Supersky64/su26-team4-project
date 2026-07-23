@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
 
 </head>
 
-    <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css">
 
 
 <body>
@@ -19,35 +20,39 @@
         </div>
 
         <div>
-            <a href="/provider/providerProfile/${provider.id?c}">Activities</a>
             <a href="/login">Logout</a>
         </div>
 
     </nav>
 
-<div class="card-container" style="padding-bottom: 265px;">
+    <div class="card-container" style="padding-bottom: 265px;">
 
-            <#list offerings as offer>
-                <div class="card">
-                    <img src="">
-                    <h2>${offer.name}</h2>
-                    <p>Skill level: ${offer.skillLevel}</p>
-                    <p>Location: ${offer.location}</p>
-                    <p>Date: ${offer.date}
-                    <a href="">View Details</a>
-                      <button type="button" class="btn btn-danger">Remove</button>
-                        <button type="button" class="btn btn-warning">Update</button>
-                </div>
-         </#list>
+        <#list offerings as offer>
+            <div class="card">
+                <img src="">
+                <h2>${offer.name}</h2>
+                <p>Skill level: ${offer.skillLevel}</p>
+                <p>Location: ${offer.location}</p>
+                <p>Date: ${offer.date}
+                    <a href="services/${offer.id?c}">View Details</a>
+                <form action="/services/delete/${offer.id?c}" method="post">
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+                <a href="/services/edit/${offer.id?c}" class="btn btn-warning">
+                    Update
+                </a>
+            </div>
+        </#list>
 
-</div>
-
-
-        </div>
     </div>
 
-<footer>
+
+    </div>
+    </div>
+
+    <footer>
         <p>@ 2026 TrailBuddy</p>
     </footer>
 </body>
+
 </html>
