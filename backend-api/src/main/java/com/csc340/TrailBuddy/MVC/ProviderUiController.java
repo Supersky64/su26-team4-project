@@ -100,10 +100,31 @@ public class ProviderUiController {
   public String getAllOfferings(Model model, HttpSession session) {
     Long providerId = (Long) session.getAttribute("providerId");
     Provider provider = providerService.findById(providerId).orElse(null);
-        System.out.println("we are inside getAllOfferings");
         model.addAttribute("offerings", outdoorServiceService.getOutdoorServicesByProviderId(providerId));
         model.addAttribute("provider", provider);
         return "/provider/offeringProvider";
     }
 
-  }
+  @GetMapping("/edit/{id}")
+    public String editOutdoorService(@PathVariable Long id, Model model) {
+        OutdoorService outdoorService = outdoorServiceService.getOutdoorServiceById(id);
+        model.addAttribute("outdoorService", outdoorService);
+        model.addAttribute("pageTitle", "Edit " + outdoorService.getName());
+        return "provider/updateOffering";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String updateOutdoorService(@PathVariable Long id, OutdoorService updatedOutdoorService) {
+       OutdoorService outdoorService = outdoorServiceService.updateOutdoorService(id, updatedOutdoorService);
+        
+        return "redirect:/services/provider/" + outdoorService.getProvider().getId();
+    }
+    
+    @PostMapping("/delete/{id}")
+    public String deleteOutdoorService(@PathVariable Long id) {
+        OutdoorService outdoorService = outdoorServiceService.getOutdoorServiceById(id);
+        Long providerId = outdoorService.getProvider().getId();
+        outdoorServiceService.deleteOutdoorService(id);        
+        return "redirect:/services/provider/" + providerId;
+    }
+}
