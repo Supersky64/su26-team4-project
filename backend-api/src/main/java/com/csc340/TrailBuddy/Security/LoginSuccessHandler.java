@@ -37,6 +37,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
                     
                     if (authority.getAuthority().equals("ROLE_CUSTOMER")) {
                         Customer customer = customerService.findByEmail(email);
+                        request.getSession().setAttribute("customerId", customer.getId());
                         response.sendRedirect("/customer/profile/" + customer.getId());
                         return;
                     }

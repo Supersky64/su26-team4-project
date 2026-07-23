@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/backend-api/src/main/resources/static/style.css">
+    <title>${pageTitle}</title>
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -14,14 +15,13 @@
     <nav>
 
         <div class="logo">
-            <img src="/backend-api/src/main/resources/static/images/trailbuddy_logo.png" alt="TrailBuddy Logo">
+            <img src="/images/trailbuddy_logo.png" alt="TrailBuddy Logo">
             <span>TrailBuddy</span>
         </div>
 
         <div>
-            <a href="index.html">Home</a>
-            <a href="../templates/customer/customer.html">Profile</a>
-            <a href="login.html">Logout</a>
+            <a href="/customer/profile/${customerId?c}">Profile</a>
+            <a href="/login">Logout</a>
         </div>
 
     </nav>
@@ -29,14 +29,13 @@
 
     <section class="hero">
 
-        <h1> Find Your Next Adventure!</h1>
+        <h1>Find Your Next Adventure!</h1>
 
         <p>
             Guided hikes, paddles, and outdoor classes
             for every skill level.
         </p>
 
-        <br>
     </section>
 
 
@@ -46,123 +45,65 @@
             <input type="text" placeholder="Search for activity...">
         </div>
 
+
         <div class="card-container">
 
-            <!--Activity #1-->
-            <div class="card">
-                
-                <img>
-                <h2>Activity 1</h2>
-                <p>
-                    Skill Level: 
-                    <span class="tag">
-                        Beginner
-                    </span>
-                </p>
+            <#list services as service>
 
-                <p>
-                    Duration: 2 hours
-                </p>
+                <div class="card">
 
-                <a href="../templates/customer/details.html">
-                    <button>View Details</button>
-                </a>
-            </div>
+                    <img src="/images/trailbuddy_logo.png" alt="Activity Image">
 
-             <!--Activity #2-->
-            <div class="card">
-                
-                <img>
-                <h2>Activity 2</h2>
-                <p>
-                    Skill Level: 
-                    <span class="tag">
-                        Beginner
-                    </span>
-                </p>
-
-                <p>
-                    Duration: 2 hours
-                </p>
-
-                <a href="../templates/customer/details.html">
-                    <button>View Details</button>
-                </a>
-            </div>
-
-            <!--Activity #3-->
-            <div class="card">
-                
-                <img>
-                <h2>Activity 3</h2>
-                <p>
-                    Skill Level: 
-                    <span class="tag">
-                        Intermediate
-                    </span>
-                </p>
-
-                <p>
-                    Duration: 2 hours
-                </p>
-
-                <a href="../templates/customer/details.html">
-                    <button>View Details</button>
-                </a>
-            </div>
+                    <h2>${service.name}</h2>
 
 
-            <!--Activity #4-->
-            <div class="card">
-                
-                <img>
-                <h2>Activity 4</h2>
-                <p>
-                    Skill Level: 
-                    <span class="tag">
-                        Intermediate
-                    </span>
-                </p>
-
-                <p>
-                    Duration: 2 hours
-                </p>
-
-                <a href="../templates/customer/details.html">
-                    <button>View Details</button>
-                </a>
-            </div>
+                    <p>
+                        Skill Level:
+                        <span class="tag">
+                            ${service.skillLevel}
+                        </span>
+                    </p>
 
 
-            <!--Activity #5-->
-            <div class="card">
-                
-                <img>
-                <h2>Activity 5</h2>
-                <p>
-                    Skill Level: 
-                    <span class="tag">
-                        Advanced
-                    </span>
-                </p>
+                    <p>
+                        Location:
+                        ${service.location}
+                    </p>
 
-                <p>
-                    Duration: 2 hours
-                </p>
 
-                <a href="../templates/customer/details.html">
-                    <button>View Details</button>
-                </a>
-            </div>
+                    <p>
+                        Date:
+                        ${service.date}
+                    </p>
+
+
+                    <p>
+                        Description:
+                        ${service.description}
+                    </p>
+
+
+                    <a href="/services/${service.id?c}">
+                        <button>
+                            View Details
+                        </button>
+                    </a>
+
+                </div>
+
+            </#list>
 
 
         </div>
+
     </div>
+
 
     <footer>
         <p>@ 2026 TrailBuddy</p>
     </footer>
-</body>
 
+
+</body>
 
 </html>
