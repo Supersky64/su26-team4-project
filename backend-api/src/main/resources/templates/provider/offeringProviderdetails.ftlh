@@ -1,3 +1,8 @@
+package templates.provider;
+
+public class offeringProviderdetails {
+
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +23,7 @@
         </div>
 
         <div>
-            <a href="/customer/index">Home</a>
-            <a href="/customer/customer-details">Profile</a>
+            <a href="/provider/providerProfile">Profile</a>
             <a href="/login">Logout</a>
         </div>
 
@@ -76,7 +80,10 @@
             <h3>Date</h3>
             <p>${outdoorService.date}</p>
             <br>
-           
+            <h3>Provider name</h3>
+            <p>${provider.name}</p><br>
+            <h3>Provider email</h3>
+            <p>${provider.email}</p>
 
         <h3>Reviews</h3>
 
