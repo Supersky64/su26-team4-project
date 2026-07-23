@@ -46,10 +46,11 @@ public class ProviderUiController {
 
 
   @GetMapping("/providerProfile/{id}")
-  public String getProviderById(@PathVariable Long id, Model model) {
+  public String getProviderById(@PathVariable Long id, Model model, HttpSession session) {
     Provider provider = providerService.findById(id).orElse(null);
 
     if (provider != null) {
+      session.setAttribute("providerId", provider.getId());
       model.addAttribute("provider", provider);
       return "provider/providerProfile";
     }
@@ -83,22 +84,22 @@ public class ProviderUiController {
   }
 
   @PostMapping("/createOffering")
-  public String createOffering(HttpSession session, String name, String description, String location, String gearList, String date){
+  public String createOffering(HttpSession session, String name, String description, String location, String gearList, String date, String skillLevel){
     Long providerId = (Long) session.getAttribute("providerId");
     if(providerId == null){
       System.out.println("providerId is null");
         return "redirect:login";
     }
     Provider provider = providerService.findById(providerId).orElse(null);
-    OutdoorService offering = new OutdoorService();
-    offering.setProvider(provider);
-    offering.setDate(date);
-    offering.setDescription(description);
-    offering.setGearList(gearList);
-    offering.setLocation(location);
-    offering.setName(name);
+    OutdoorService offering = new OutdoorService(provider, name, description, skillLevel, location, gearList, date);
     outdoorServiceService.createOutdoorService(offering);
     return "redirect:/provider/offeringProvider";
   }
+
+  @GetMapping("/offeringProvider")
+  public String offeringPage(){
+    return "/provider/offeringProvider";
+  }
+
 
 }

@@ -48,9 +48,9 @@
 
                 <select id="skillLevel" name="skillLevel" required>
                     <option value="">Select skill level</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
                 </select>
 
                 <label for="location">Change location: </label>

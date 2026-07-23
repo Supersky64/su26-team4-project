@@ -120,18 +120,18 @@
         </div>
         <br>
         <br>
-        <a class="btn btn-warning" href="/provider/OfferingProvider" role="button">View your offerings</a>
+        <a class="btn btn-warning" href="/provider/offeringProvider" role="button">View your offerings</a>
         <h2><br>Create a Listing</h2>
         <form action="/provider/createOffering" method="post">
         <div>
             <label for="aligned-name" style="padding-right: 100px;">Name:</label>
             <input id="aligned-name" type="text" class="pure-input-1"
-                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" required/>
+                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" name="name" required/>
         </div>
         <br>
         <div>
             <label for="date" style="padding-right: 109px;">Date: </label>
-            <input id="date" type="date" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required/>
+            <input id="date" type="date" name="date" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required/>
         </div>
         <br>
         <div>
@@ -199,16 +199,16 @@
         <p><br></p>
         <div class="mb-3">
             <label for="formFile" class="form-label">Upload image (optional)</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="formFile"/>
         </div>
         <br>
-        <label for="skill-level" style="padding-right: 12px;">Select Skill level:</label>
-        <select id="skill-level" name="skillLevel"
+        <label for="skillLevel" style="padding-right: 12px;">Select Skill level:</label>
+        <select id="skillLevel" name="skillLevel"
             style="margin-left: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
             <option value="">Select Skill</option>
-            <option value="begineer">Begineer</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
+            <option value="Begineer">Begineer</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
         </select>
         <p><br></p>
         <div>
