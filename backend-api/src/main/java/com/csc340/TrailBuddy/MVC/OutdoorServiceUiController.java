@@ -14,15 +14,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.csc340.TrailBuddy.Entity.OutdoorService;
 import com.csc340.TrailBuddy.Entity.Provider;
 import com.csc340.TrailBuddy.Service.OutdoorServiceService;
+import com.csc340.TrailBuddy.Service.ProviderService;
 
 @Controller
 @RequestMapping("/services")
 public class OutdoorServiceUiController {
 
     private final OutdoorServiceService outdoorServiceService;
+    private final ProviderService providerService;
 
-    public OutdoorServiceUiController(OutdoorServiceService outdoorServiceService) {
+    public OutdoorServiceUiController(OutdoorServiceService outdoorServiceService, ProviderService providerService) {
         this.outdoorServiceService = outdoorServiceService;
+        this.providerService = providerService;
     }
 
     @GetMapping
@@ -50,9 +53,11 @@ public class OutdoorServiceUiController {
 
     @GetMapping("/provider/{providerId}")
     public String getProviderOutdoorService(@PathVariable Long providerId, Model model) {
+        Provider provider  = providerService.findById(providerId).orElse(null);
+        model.addAttribute("provider", provider);
         model.addAttribute("offerings", outdoorServiceService.getOutdoorServicesByProviderId(providerId));
         model.addAttribute("pageTitle", "My Activites");
-        return "provider/offeringProvider";
+        return "outdoorService/offeringProvider";
     }
 
     @GetMapping("/edit/{id}")
