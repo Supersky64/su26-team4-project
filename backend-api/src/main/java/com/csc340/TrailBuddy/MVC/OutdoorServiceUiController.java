@@ -12,20 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.csc340.TrailBuddy.Entity.OutdoorService;
-import com.csc340.TrailBuddy.Entity.Provider;
 import com.csc340.TrailBuddy.Service.OutdoorServiceService;
-import com.csc340.TrailBuddy.Service.ProviderService;
 
 @Controller
 @RequestMapping("/services")
 public class OutdoorServiceUiController {
 
     private final OutdoorServiceService outdoorServiceService;
-    private final ProviderService providerService;
 
-    public OutdoorServiceUiController(OutdoorServiceService outdoorServiceService, ProviderService providerService) {
+    public OutdoorServiceUiController(OutdoorServiceService outdoorServiceService) {
         this.outdoorServiceService = outdoorServiceService;
-        this.providerService = providerService;
     }
 
     @GetMapping
@@ -38,13 +34,9 @@ public class OutdoorServiceUiController {
     @GetMapping("/{id}")
     public String getOutdoorServiceById(@PathVariable Long id, Model model) {
         OutdoorService outdoorService = outdoorServiceService.getOutdoorServiceById(id);
-        Provider p = outdoorService.getProvider();
-        if (outdoorService != null && p != null) {
+        if (outdoorService != null) {
             model.addAttribute("outdoorService", outdoorService);
-            model.addAttribute("providerName", p.getName());
-            model.addAttribute("providerEmail", p.getEmailAddress());
             model.addAttribute("pageTitle", outdoorService.getName());
-            System.out.println("this point was reached");
             return "outdoorServices/outdoorService-details";
         } else {
             return "outdoorServices/outdoorService-not-found";
@@ -53,11 +45,9 @@ public class OutdoorServiceUiController {
 
     @GetMapping("/provider/{providerId}")
     public String getProviderOutdoorService(@PathVariable Long providerId, Model model) {
-        Provider provider  = providerService.findById(providerId).orElse(null);
-        model.addAttribute("provider", provider);
         model.addAttribute("offerings", outdoorServiceService.getOutdoorServicesByProviderId(providerId));
         model.addAttribute("pageTitle", "My Activites");
-        return "outdoorService/offeringProvider";
+        return "provider/offeringProvider";
     }
 
     @GetMapping("/edit/{id}")
