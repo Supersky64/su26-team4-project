@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import com.csc340.TrailBuddy.Entity.Customer;
 import com.csc340.TrailBuddy.Entity.OutdoorService;
@@ -81,6 +80,25 @@ public class ProviderUiController {
     providerService.updateProviderInfo(id, provider);
 
     return "redirect:/provider/providerProfile/" + id;
+  }
+
+  @PostMapping("/createOffering")
+  public String createOffering(HttpSession session, String name, String description, String location, String gearList, String date){
+    Long providerId = (Long) session.getAttribute("providerId");
+    if(providerId == null){
+      System.out.println("providerId is null");
+        return "redirect:login";
+    }
+    Provider provider = providerService.findById(providerId).orElse(null);
+    OutdoorService offering = new OutdoorService();
+    offering.setProvider(provider);
+    offering.setDate(date);
+    offering.setDescription(description);
+    offering.setGearList(gearList);
+    offering.setLocation(location);
+    offering.setName(name);
+    outdoorServiceService.createOutdoorService(offering);
+    return "redirect:/provider/offeringProvider";
   }
 
 }

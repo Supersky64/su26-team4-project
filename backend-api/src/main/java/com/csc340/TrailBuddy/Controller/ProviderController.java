@@ -61,7 +61,7 @@ public class ProviderController {
     }
 
     @PostMapping
-    public ResponseEntity<Provider> createTrainer(@RequestBody Provider p) {
+    public ResponseEntity<Provider> createProvider(@RequestBody Provider p) {
         Provider createdProvider = providerService.createProvider(p);
         return ResponseEntity.created(null).body(createdProvider);
     }
