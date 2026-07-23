@@ -28,7 +28,7 @@
 
             <h1>Update offering</h1>
 
-            <form action="/customer/signup" method="post">
+            <form action="/services/edit/${outdoorService.id}" method="post">
 
                 <label for="name">Change name: </label>
                 <input type="text" id="name" name="name" value="${(outdoorService.name)!}" placeholder="Enter name"

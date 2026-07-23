@@ -22,6 +22,6 @@ TrailBuddy's system supports users being able to curate their searches based on 
     4. Write reviews for subscribed services - Users will be able to leave a written review about the activity they had selected as well as be able to view other reviews left on that page.
 2. Provider (Individual Guides or Organizations):
     1. Create/modify/remove provider profile - Register as a provider and display overall experience and specialties.
-    2. Create services - Publish offerings for classes, guided hikes, or outdoor events and their availability.
-    3. View customer statistics - See how many people have registered or unregistered for their service and see the profile of those who have registered.
+    2. Create/update/remove services - Publish offerings for classes, guided hikes, or outdoor events for customers.
+    3. View customer statistics - See how many people have registered for their service and see the profile of those who have registered.
     4. Reply to reviews - Respond to customer feedback in a professional manner.

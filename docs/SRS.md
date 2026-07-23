@@ -26,7 +26,7 @@
 - **Provider** — Manage offerings and promote themselves to potetinal customers
 
 **Scope (this semester).**
-- Search and filter for results
+- Filter for results
 - Profiles for customers and providers
 - Reviews from customers and responses from providers
 - Register for offerings
@@ -74,7 +74,7 @@
   ```
 
   **US‑8 — Register/Unregister for activity**  
-  _Story:_ As a customer, I want to be able to register an unregister for an activity 
+  _Story:_ As a customer, I want to be able to register and unregister for an activity 
   _Acceptance:_
   ```gherkin
   Scenario: Find an activity and register for it
@@ -126,14 +126,13 @@
   ```
 
   - **US-9 — Registration statistics**  
-  _Story:_ As a provider, I want to be able to see how many people registered/unregistered for an activity and see who registered for said activity so I can see who we are providing services for 
+  _Story:_ As a provider, I want to be able to see who registered for said activity so I can see who we are providing services for 
   _Acceptance:_
   ```gherkin
   Scenario: Viewing registration on offering
     Given The offering already exists. 
     When  I am viewing the offering
-    Then  I should be successful in seeing how many people have registered and unregistered
-    And   See the profile of the people who have registered 
+    Then  I should be successful in seeing who have registered 
   ```
 ---
 

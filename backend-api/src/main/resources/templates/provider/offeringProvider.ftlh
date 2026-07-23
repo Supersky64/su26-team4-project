@@ -8,7 +8,7 @@
 
 </head>
 
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/../style.css">
 
 
 <body>
@@ -21,6 +21,7 @@
 
         <div>
             <a href="/login">Logout</a>
+            <a href="/provider/providerProfile">Profile</a>
         </div>
 
     </nav>
@@ -33,8 +34,8 @@
                 <h2>${offer.name}</h2>
                 <p>Skill level: ${offer.skillLevel}</p>
                 <p>Location: ${offer.location}</p>
-                <p>Date: ${offer.date}
-                    <a href="services/${offer.id?c}">View Details</a>
+                <p>Date: ${offer.date}</p>
+                    <a href="/services/${offer.id?c}">View Details</a>
                 <form action="/services/delete/${offer.id?c}" method="post">
                     <button type="submit" class="btn btn-danger">Remove</button>
                 </form>

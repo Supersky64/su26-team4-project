@@ -199,16 +199,16 @@
         <p><br></p>
         <div class="mb-3">
             <label for="formFile" class="form-label">Upload image (optional)</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="formFile"/>
         </div>
         <br>
-        <label for="skill-level" style="padding-right: 12px;">Select Skill level:</label>
-        <select id="skill-level" name="skillLevel"
+        <label for="skillLevel" style="padding-right: 12px;">Select Skill level:</label>
+        <select id="skillLevel" name="skillLevel"
             style="margin-left: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
             <option value="">Select Skill</option>
-            <option value="begineer">Begineer</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
+            <option value="Begineer">Begineer</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
         </select>
         <p><br></p>
         <div>

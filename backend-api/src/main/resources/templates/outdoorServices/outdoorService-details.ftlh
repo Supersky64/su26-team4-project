@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${pageTitle}</title>
-
-    <link rel="stylesheet" href="/style.css">
+    <title>Details</title>
+    <link rel="stylesheet" href="/../style.css">
 </head>
 
 <body>
@@ -37,7 +36,8 @@
 
         <br><br>
 
-        <h3>Difficulty</h3>
+
+        <h3>Skill Level</h3>
 
         <span class="tag">
             ${outdoorService.skillLevel}
@@ -102,6 +102,16 @@
                         </strong>
                     </p>
 
+            <h3>Location</h3>
+            <p>${outdoorService.location}</p>
+
+            <br>
+            <h3>Date</h3>
+            <p>${outdoorService.date}</p>
+            <br>
+           
+
+        <h3>Reviews</h3>
 
                     <#if review.replyText??>
 
@@ -123,6 +133,7 @@
             </#list>
 
 
+        <a href="/register/prior" class="btn btn-warning">Register</a>
             <#else>
 
                 <p>No reviews yet.</p>
