@@ -66,7 +66,7 @@ public class ProviderUiController {
     providerService.createProvider(createdProvider);
     System.out.println(createdProvider.toString());
     session.setAttribute("providerId", createdProvider.getId());
-    return "redirect:/provider/providerProfile";
+    return "redirect:/provider/providerProfile/" + createdProvider.getId();
   }
 
   @GetMapping("/signup")
