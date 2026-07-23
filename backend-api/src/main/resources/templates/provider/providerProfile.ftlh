@@ -120,18 +120,18 @@
         </div>
         <br>
         <br>
-        <a class="btn btn-warning" href="/provider/offeringProvider" role="button">View your offerings</a>
+        <a class="btn btn-warning" href="/services/provider/${provider.id?c}" role="button">View your offerings</a>
         <h2><br>Create a Listing</h2>
         <form action="/provider/createOffering" method="post">
         <div>
             <label for="aligned-name" style="padding-right: 100px;">Name:</label>
-            <input id="aligned-name" type="text" class="pure-input-1"
-                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" name="name" required/>
+            <input id="aligned-name" name="name" type="text" class="pure-input-1"
+                style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; min-width: 500px;" required/>
         </div>
         <br>
         <div>
             <label for="date" style="padding-right: 109px;">Date: </label>
-            <input id="date" type="date" name="date" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required/>
+            <input id="date" name="date" type="date" style="border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required/>
         </div>
         <br>
         <div>

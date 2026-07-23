@@ -92,39 +92,16 @@ public class ProviderUiController {
     }
     Provider provider = providerService.findById(providerId).orElse(null);
     OutdoorService offering = new OutdoorService(provider, name, description, skillLevel, location, gearList, date);
+    OutdoorService offering = new OutdoorService();
+    offering.setProvider(provider);
+    offering.setDate(date);
+    offering.setDescription(description);
+    offering.setGearList(gearList);
+    offering.setLocation(location);
+    offering.setName(name);
+    offering.setSkillLevel(skillLevel);
     outdoorServiceService.createOutdoorService(offering);
-    return "redirect:/provider/offeringProvider";
+    return "redirect:/services/provider/" + providerId;
   }
 
-  @GetMapping("/offeringProvider")
-  public String getAllOfferings(Model model, HttpSession session) {
-    Long providerId = (Long) session.getAttribute("providerId");
-    Provider provider = providerService.findById(providerId).orElse(null);
-        model.addAttribute("offerings", outdoorServiceService.getOutdoorServicesByProviderId(providerId));
-        model.addAttribute("provider", provider);
-        return "/provider/offeringProvider";
-    }
-
-  @GetMapping("/edit/{id}")
-    public String editOutdoorService(@PathVariable Long id, Model model) {
-        OutdoorService outdoorService = outdoorServiceService.getOutdoorServiceById(id);
-        model.addAttribute("outdoorService", outdoorService);
-        model.addAttribute("pageTitle", "Edit " + outdoorService.getName());
-        return "provider/updateOffering";
-    }
-
-    @PostMapping("/edit/{id}")
-    public String updateOutdoorService(@PathVariable Long id, OutdoorService updatedOutdoorService) {
-       OutdoorService outdoorService = outdoorServiceService.updateOutdoorService(id, updatedOutdoorService);
-        
-        return "redirect:/services/provider/" + outdoorService.getProvider().getId();
-    }
-    
-    @PostMapping("/delete/{id}")
-    public String deleteOutdoorService(@PathVariable Long id) {
-        OutdoorService outdoorService = outdoorServiceService.getOutdoorServiceById(id);
-        Long providerId = outdoorService.getProvider().getId();
-        outdoorServiceService.deleteOutdoorService(id);        
-        return "redirect:/services/provider/" + providerId;
-    }
 }
