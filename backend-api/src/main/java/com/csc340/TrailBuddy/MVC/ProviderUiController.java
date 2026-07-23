@@ -92,14 +92,6 @@ public class ProviderUiController {
     }
     Provider provider = providerService.findById(providerId).orElse(null);
     OutdoorService offering = new OutdoorService(provider, name, description, skillLevel, location, gearList, date);
-    OutdoorService offering = new OutdoorService();
-    offering.setProvider(provider);
-    offering.setDate(date);
-    offering.setDescription(description);
-    offering.setGearList(gearList);
-    offering.setLocation(location);
-    offering.setName(name);
-    offering.setSkillLevel(skillLevel);
     outdoorServiceService.createOutdoorService(offering);
     return "redirect:/services/provider/" + providerId;
   }
