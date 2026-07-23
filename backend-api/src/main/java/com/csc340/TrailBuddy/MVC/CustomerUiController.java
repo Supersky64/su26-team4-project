@@ -47,9 +47,10 @@ public class CustomerUiController {
     }
 
     @PostMapping("/signup")
-    public String createCustomer(Customer customer) {
+    public String createCustomer(Customer customer, HttpSession session) {
 
         Customer savedCustomer = customerService.createCustomer(customer);
+        session.setAttribute("customerId", savedCustomer.getId());
 
         return "redirect:/customer/profile/" + savedCustomer.getId();
     }

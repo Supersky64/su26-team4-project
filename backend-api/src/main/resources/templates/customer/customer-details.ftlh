@@ -20,7 +20,7 @@
         </div>
 
         <div>
-            <a href="../customer/index.html">Activities</a>
+            <a href="/services">Activities</a>
             <a href="/login">Logout</a>
         </div>
 
@@ -97,8 +97,10 @@
 
                     <br>
 
+                <a href="/services">
                     <button>View Activities</button>
-
+                </a>
+                
                 </div>
 
                 <div class="profile-card">
