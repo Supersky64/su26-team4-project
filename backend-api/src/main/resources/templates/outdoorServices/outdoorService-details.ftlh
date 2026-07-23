@@ -73,15 +73,73 @@
                     <li>${gear?trim}</li>
                 </#list>
             </ul>
-        <#else>
-            <p>No gear required.</p>
+            <#else>
+                <p>No gear required.</p>
         </#if>
 
         <br>
 
         <h3>Reviews</h3>
+        <#if outdoorService.provider.reviews?? && outdoorService.provider.reviews?size gt 0>
 
-        <p>No reviews yet.</p>
+
+            <#list outdoorService.provider.reviews as review>
+
+                <div class="review">
+
+                    <h4>
+                        ${review.rating}/5
+                    </h4>
+
+                    <p>
+                        ${review.comments}
+                    </p>
+
+
+                    <p>
+                        <strong>
+                            - ${review.customer.name}
+                        </strong>
+                    </p>
+
+
+                    <#if review.replyText??>
+
+                        <p>
+                            <strong>
+                                Provider Reply:
+                            </strong>
+
+                            ${review.replyText}
+                        </p>
+
+                    </#if>
+
+
+                </div>
+
+                <br>
+
+            </#list>
+
+
+            <#else>
+
+                <p>No reviews yet.</p>
+
+
+        </#if>
+
+        <form action="/reviews/new/${outdoorService.provider.id}" method="get">
+
+            <button type="submit">
+                Leave Review
+            </button>
+
+        </form>
+
+
+        </form>
 
         <br>
 
