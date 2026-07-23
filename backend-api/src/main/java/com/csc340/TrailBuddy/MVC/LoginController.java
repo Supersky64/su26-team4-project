@@ -1,4 +1,4 @@
-package com.csc340.TrailBuddy.Controller;
+package com.csc340.TrailBuddy.MVC;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
