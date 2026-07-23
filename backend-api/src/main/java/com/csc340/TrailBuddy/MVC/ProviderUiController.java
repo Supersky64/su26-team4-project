@@ -97,9 +97,13 @@ public class ProviderUiController {
   }
 
   @GetMapping("/offeringProvider")
-  public String offeringPage(){
-    return "/provider/offeringProvider";
+  public String getAllOfferings(Model model, HttpSession session) {
+    Long providerId = (Long) session.getAttribute("providerId");
+    Provider provider = providerService.findById(providerId).orElse(null);
+        System.out.println("we are inside getAllOfferings");
+        model.addAttribute("offerings", outdoorServiceService.getOutdoorServicesByProviderId(providerId));
+        model.addAttribute("provider", provider);
+        return "/provider/offeringProvider";
+    }
+
   }
-
-
-}
