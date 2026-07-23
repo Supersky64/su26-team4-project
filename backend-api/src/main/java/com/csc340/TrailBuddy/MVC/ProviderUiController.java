@@ -83,7 +83,7 @@ public class ProviderUiController {
   }
 
   @PostMapping("/createOffering")
-  public String createOffering(HttpSession session, String name, String description, String location, String gearList, String date){
+  public String createOffering(HttpSession session, String name, String description, String location, String gearList, String date, String skillLevel){
     Long providerId = (Long) session.getAttribute("providerId");
     if(providerId == null){
       System.out.println("providerId is null");
@@ -97,8 +97,9 @@ public class ProviderUiController {
     offering.setGearList(gearList);
     offering.setLocation(location);
     offering.setName(name);
+    offering.setSkillLevel(skillLevel);
     outdoorServiceService.createOutdoorService(offering);
-    return "redirect:/provider/offeringProvider";
+    return "redirect:/services/provider/" + providerId;
   }
 
 }

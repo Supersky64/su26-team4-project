@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            <img src="../images/trailbuddy_logo.png" alt="TrailBuddy Logo by Bryan Palma">
+            <span>TrailBuddy</span>
+        </div>
+
+        <div>
+            <a href="../customer/index.html">Home</a>
+            <a href="../customer/customer.html">Profile</a>
+            <a href="../customer/login.html">Logout</a>
+        </div>
+
+    </nav>
+
+
+
+    <div class="details">
+
+
+        <h1>Activity 1</h1>
+
+        <br>
+
+        <img>
+
+
+        <br><br>
+
+
+        <h3>Difficulty</h3>
+
+        <span class="tag">
+            Beginner
+        </span>
+
+
+        <h3>About This Activity</h3>
+
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+            id est laborum.
+        </p>
+
+
+        <br>
+
+
+        <h3>Gear Checklist</h3>
+
+        <ul>
+
+            <li>Hiking Boots</li>
+            <li>Water Bottle</li>
+            <li>Backpack</li>
+            <li>Weather Appropriate Clothing</li>
+
+        </ul>
+
+
+        <br>
+
+
+        <h3>Reviews</h3>
+
+        <p>
+            ★★★★★
+            Great guide and amazing views!
+        </p>
+
+        <br>
+
+        <button>
+            Register <!--once you hit the register button this should be replaced with unregister-->
+        </button>
+
+
+    </div>
+
+</body>
+
+</html>
