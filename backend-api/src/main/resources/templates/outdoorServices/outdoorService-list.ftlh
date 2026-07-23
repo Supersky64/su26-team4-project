@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/backend-api/src/main/resources/static/style.css">
+    <title>What's out there</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>

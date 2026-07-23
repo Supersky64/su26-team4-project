@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.csc340.TrailBuddy.Entity.OutdoorService;
+import com.csc340.TrailBuddy.Entity.Provider;
 import com.csc340.TrailBuddy.Service.OutdoorServiceService;
 
 @Controller
@@ -34,9 +35,13 @@ public class OutdoorServiceUiController {
     @GetMapping("/{id}")
     public String getOutdoorServiceById(@PathVariable Long id, Model model) {
         OutdoorService outdoorService = outdoorServiceService.getOutdoorServiceById(id);
-        if (outdoorService != null) {
+        Provider p = outdoorService.getProvider();
+        if (outdoorService != null && p != null) {
             model.addAttribute("outdoorService", outdoorService);
+            model.addAttribute("providerName", p.getName());
+            model.addAttribute("providerEmail", p.getEmailAddress());
             model.addAttribute("pageTitle", outdoorService.getName());
+            System.out.println("this point was reached");
             return "outdoorServices/outdoorService-details";
         } else {
             return "outdoorServices/outdoorService-not-found";

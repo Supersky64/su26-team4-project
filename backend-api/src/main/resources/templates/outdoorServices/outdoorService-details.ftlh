@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/../style.css">
 </head>
 
 <body>
@@ -18,9 +18,9 @@
         </div>
 
         <div>
-            <a href="../customer/index.html">Home</a>
-            <a href="../customer/customer.html">Profile</a>
-            <a href="../customer/login.html">Logout</a>
+            <a href="/customer/index">Home</a>
+            <a href="/customer/customer-details">Profile</a>
+            <a href="/login">Logout</a>
         </div>
 
     </nav>
@@ -30,7 +30,7 @@
     <div class="details">
 
 
-        <h1>Activity 1</h1>
+        <h1>${outdoorService.name}</h1>
 
         <br>
 
@@ -40,24 +40,17 @@
         <br><br>
 
 
-        <h3>Difficulty</h3>
+        <h3>Skill Level</h3>
 
         <span class="tag">
-            Beginner
+            ${outdoorService.skillLevel}
         </span>
 
 
         <h3>About This Activity</h3>
 
         <p>
-            Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.
+            ${outdoorService.description}
         </p>
 
 
@@ -68,16 +61,25 @@
 
         <ul>
 
-            <li>Hiking Boots</li>
-            <li>Water Bottle</li>
-            <li>Backpack</li>
-            <li>Weather Appropriate Clothing</li>
+            ${outdoorService.gearList}
 
         </ul>
 
 
         <br>
 
+
+            <h3>Location</h3>
+            <p>${outdoorService.location}</p>
+
+            <br>
+            <h3>Date</h3>
+            <p>${outdoorService.date}</p>
+            <br>
+            <h3>Provider name</h3>
+            <p>${providerName}</p><br>
+            <h3>Provider email</h3>
+            <p>${providerEmail}</p>
 
         <h3>Reviews</h3>
 
@@ -88,9 +90,7 @@
 
         <br>
 
-        <button>
-            Register <!--once you hit the register button this should be replaced with unregister-->
-        </button>
+        <a href="/register/prior" class="btn btn-warning">Register</a>
 
 
     </div>

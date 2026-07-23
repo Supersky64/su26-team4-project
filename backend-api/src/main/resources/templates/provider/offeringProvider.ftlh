@@ -21,6 +21,7 @@
 
         <div>
             <a href="/login">Logout</a>
+            <a href="/provider/providerProfile">Profile</a>
         </div>
 
     </nav>
