@@ -120,7 +120,7 @@
         </div>
         <br>
         <br>
-        <a class="btn btn-warning" href="/provider/OfferingProvider" role="button">View your offerings</a>
+        <a class="btn btn-warning" href="/services/provider/${provider.id?c}" role="button">View your offerings</a>
         <h2><br>Create a Listing</h2>
         <form action="/provider/createOffering" method="post">
         <div>
