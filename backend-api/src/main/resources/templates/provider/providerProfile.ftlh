@@ -122,7 +122,7 @@
         <br>
         <a class="btn btn-warning" href="/provider/OfferingProvider" role="button">View your offerings</a>
         <h2><br>Create a Listing</h2>
-        <form action="provider/createOffering" method="post">
+        <form action="/provider/createOffering" method="post">
         <div>
             <label for="aligned-name" style="padding-right: 100px;">Name:</label>
             <input id="aligned-name" type="text" class="pure-input-1"

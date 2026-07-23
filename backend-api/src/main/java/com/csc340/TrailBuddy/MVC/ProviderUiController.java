@@ -86,6 +86,7 @@ public class ProviderUiController {
   public String createOffering(HttpSession session, String name, String description, String location, String gearList, String date){
     Long providerId = (Long) session.getAttribute("providerId");
     if(providerId == null){
+      System.out.println("providerId is null");
         return "redirect:login";
     }
     Provider provider = providerService.findById(providerId).orElse(null);
